@@ -145,15 +145,69 @@
 
 //////////////////////Boolean Logic //////////////////////////
 
-var firstName = 'john'
-var age = 20
+// var firstName = 'john'
+// var age = 20
 
-if(age > 20){
-  console.log(`${firstName} is a boy`)
-} else if (age >= 13 && age < 20){
-  console.log(`${firstName} is a teenager`)
-} else if(age >= 20 && age < 30){
-  console.log(`${firstName} is a young man`)
+// if(age > 20){
+//   console.log(`${firstName} is a boy`)
+// } else if (age >= 13 && age < 20){
+//   console.log(`${firstName} is a teenager`)
+// } else if(age >= 20 && age < 30){
+//   console.log(`${firstName} is a young man`)
+// } else {
+//   console.log(`${firstName} is a man`)
+// }
+
+
+
+//////////////Ternary Operator and Switch Statement //////////
+
+var firstName = 'john'
+var age = 22
+
+// it reads: if age is greater than or equal to 18 then console.log this first statement, if it is not console.log the second statement
+age >= 18 ? console.log(firstName + 'drinks beer') : console.log(firstName + 'drinks juice')
+
+// this reads: drinks will equal beer or juice
+var drinks = age >= 18 ? 'beer' : 'juice'
+console.log(drinks)
+
+if(age>=18){
+  var drinks = 'beer'
 } else {
-  console.log(`${firstName} is a man`)
+  var drinks = 'juice'
+}
+
+
+// Switch Statement 
+// this reads: if job equal to teacher then run the case for teacher and console.log the statement below, if none of the cases match is will default
+var job = 'teacher' 
+switch (job){
+  case 'teacher':
+  case 'instructor':
+    console.log(`${firstName} teach kids how to code`)
+    break;
+  case 'driver':
+    console.log(`${firstName} drives an uber in Lisbon`)
+    break;
+  case 'designer':
+    console.log(`${firstName} designs beautiful websites `)
+    break;
+  default: 
+    console.log(`${firstName} does something else `)
+} 
+
+// this reads: the age that matches one of these case will run
+switch(true){
+  case age < 13:
+    console.log(`${firstName} is a boy`)
+    break
+  case age >= 13 && age < 20:
+    console.log(`${firstName} is a teenager`)
+    break  
+  case age >= 20 && age < 30:
+    console.log(`${firstName} is a young man`)
+    break
+  default:
+    console.log(`${firstName} is a man`)
 }
