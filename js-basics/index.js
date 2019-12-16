@@ -56,3 +56,13 @@ console.log(now + 2)
 console.log(now * 2)
 console.log(now  / 10)
 
+// Examples of Logical Operators 
+var johnOlder = ageJohn > ageMark 
+console.log(johnOlder)
+
+// Example of typeof Operator 
+console.log(typeof(johnOlder)) //--> boolean
+console.log(typeof(ageJohn)) //--> number
+console.log(typeof('JS is fun'))//--> String
+var x
+console.log(typeof(x))//--> undefined
