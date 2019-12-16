@@ -110,35 +110,50 @@
 
 //////////////////////If and Else ////////////////////////////
 
-var firstName = 'john'
-var civilStatus = 'single'
+// var firstName = 'john'
+// var civilStatus = 'single'
 
-// if the if statement is false then the else block will execute
-if (civilStatus === 'married'){
-  console.log(`${firstName} is married!`)
-} else {
-  console.log(`${firstName} will marry soon.`)
-}
+// // if the if statement is false then the else block will execute
+// if (civilStatus === 'married'){
+//   console.log(`${firstName} is married!`)
+// } else {
+//   console.log(`${firstName} will marry soon.`)
+// }
 
  
-var isMarried = false 
-if (isMarried){
-  console.log(`${firstName} is married!`)
+// var isMarried = false 
+// if (isMarried){
+//   console.log(`${firstName} is married!`)
+// } else {
+//   console.log(`${firstName} will marry soon.`)
+// }
+
+
+// const markHeight = 1.77
+// const johnHeight = 1.89
+// const markMass = 72.57
+// const johnMass = 65.77
+
+// const markBmi = markMass / (markHeight * markHeight)
+// const johnBmi = johnMass / (johnHeight * johnHeight)
+
+// if(markBmi > johnBmi){
+//   console.log(`Mark has a higher BMI than John`)
+// } else {
+//   console.log(`John has a higher BMI than Mark`)
+// }
+
+//////////////////////Boolean Logic //////////////////////////
+
+var firstName = 'john'
+var age = 20
+
+if(age > 20){
+  console.log(`${firstName} is a boy`)
+} else if (age >= 13 && age < 20){
+  console.log(`${firstName} is a teenager`)
+} else if(age >= 20 && age < 30){
+  console.log(`${firstName} is a young man`)
 } else {
-  console.log(`${firstName} will marry soon.`)
-}
-
-
-const markHeight = 1.77
-const johnHeight = 1.89
-const markMass = 72.57
-const johnMass = 65.77
-
-const markBmi = markMass / (markHeight * markHeight)
-const johnBmi = johnMass / (johnHeight * johnHeight)
-
-if(markBmi > johnBmi){
-  console.log(`Mark has a higher BMI than John`)
-} else {
-  console.log(`John has a higher BMI than Mark`)
+  console.log(`${firstName} is a man`)
 }
