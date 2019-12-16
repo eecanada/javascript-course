@@ -43,3 +43,16 @@
 
 ///////////////////////Basic Operators////////////////////////
 
+var now, yearJohn, yearMark
+now = 2019
+ageJohn = 28
+ageMark = 33
+
+// Examples of Math Operator 
+yearJohn  = now - ageJohn
+yearMark = now - ageMark
+console.log(yearJohn)
+console.log(now + 2)
+console.log(now * 2)
+console.log(now  / 10)
+
