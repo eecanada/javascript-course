@@ -5,13 +5,13 @@
 // const lastName = 'Smith'
 
 // // Number
-// let age = 28 
+// const age = 28 
 
 // // Boolean
 // const fullAge = true 
 
 // // Undefined 
-// let job; 
+// const job; 
 // console.log(job)
 
 
@@ -19,12 +19,12 @@
 ////////////////Variable Mutation and Type Coercion///////////
 
 // // Examples of Type Coercion, JS converts types from one to another as needed 
-// let firstName = 'John'
-// let age = 28
+// const firstName = 'John'
+// const age = 28
 // console.log(firstName + " "+ age) // --> John 28
 
 
-// var job, isMarried 
+// const job, isMarried 
 // job = 'teacher'
 // isMarried = false 
 // console.log(firstName + ' is a ' + age + ' year old ' + job +'. Is he married? ' + isMarried )
@@ -36,14 +36,14 @@
 // alert(firstName + ' is a ' + age + ' year old ' + job +'. Is he married? ' + isMarried)
 
 // // here I am able to use prompt to display a prompt to answer and save the answer a variable lastName 
-// var lastName = prompt('what is his last name?')
+// const lastName = prompt('what is his last name?')
 // console.log(firstName + ' ' + lastName)
 
 
 
 ///////////////////////Basic Operators////////////////////////
 
-// var now, yearJohn, yearMark
+// const now, yearJohn, yearMark
 // now = 2019
 // ageJohn = 28
 // ageMark = 33
@@ -57,14 +57,14 @@
 // console.log(now  / 10)
 
 // // Examples of Logical Operators 
-// var johnOlder = ageJohn > ageMark 
+// const johnOlder = ageJohn > ageMark 
 // console.log(johnOlder)
 
 // // Example of typeof Operator 
 // console.log(typeof(johnOlder)) //--> boolean
 // console.log(typeof(ageJohn)) //--> number
 // console.log(typeof('JS is fun'))//--> String
-// var x
+// const x
 // console.log(typeof(x))//--> undefined
 
 
@@ -72,22 +72,22 @@
 
 ///////////////////Operator Precedence////////////////////////
 
-// var now = 2019
-// var yearJohn = 1989
-// var fullAge = 18
+// const now = 2019
+// const yearJohn = 1989
+// const fullAge = 18
 
 // // Multiple Operators
-// var isFullAge = now - yearJohn >= fullAge
+// const isFullAge = now - yearJohn >= fullAge
 // console.log(isFullAge)//--> true
 
 // // Grouping
-// var ageJohn = now - yearJohn
-// var ageMark = 35
-// var average = (ageJohn + ageMark) / 2
+// const ageJohn = now - yearJohn
+// const ageMark = 35
+// const average = (ageJohn + ageMark) / 2
 // console.log(average)//--> 32.5
 
 // // Multiple Assignments 
-// var x,y 
+// const x,y 
 // x = y = (3 + 5) * 4 - 6
 // console.log(x) //--> 26
 
@@ -110,8 +110,8 @@
 
 //////////////////////If and Else ////////////////////////////
 
-// var firstName = 'john'
-// var civilStatus = 'single'
+// const firstName = 'john'
+// const civilStatus = 'single'
 
 // // if the if statement is false then the else block will execute
 // if (civilStatus === 'married'){
@@ -121,7 +121,7 @@
 // }
 
  
-// var isMarried = false 
+// const isMarried = false 
 // if (isMarried){
 //   console.log(`${firstName} is married!`)
 // } else {
@@ -145,8 +145,8 @@
 
 //////////////////////Boolean Logic //////////////////////////
 
-// var firstName = 'john'
-// var age = 20
+// const firstName = 'john'
+// const age = 20
 
 // if(age > 20){
 //   console.log(`${firstName} is a boy`)
@@ -162,52 +162,77 @@
 
 //////////////Ternary Operator and Switch Statement //////////
 
-var firstName = 'john'
-var age = 22
+// const firstName = 'john'
+// const age = 22
 
-// it reads: if age is greater than or equal to 18 then console.log this first statement, if it is not console.log the second statement
-age >= 18 ? console.log(firstName + 'drinks beer') : console.log(firstName + 'drinks juice')
+// // it reads: if age is greater than or equal to 18 then console.log this first statement, if it is not console.log the second statement
+// age >= 18 ? console.log(firstName + 'drinks beer') : console.log(firstName + 'drinks juice')
 
-// this reads: drinks will equal beer or juice
-var drinks = age >= 18 ? 'beer' : 'juice'
-console.log(drinks)
+// // this reads: drinks will equal beer or juice
+// const drinks = age >= 18 ? 'beer' : 'juice'
+// console.log(drinks)
 
-if(age>=18){
-  var drinks = 'beer'
-} else {
-  var drinks = 'juice'
-}
+// if(age>=18){
+//   const drinks = 'beer'
+// } else {
+//   const drinks = 'juice'
+// }
 
 
-// Switch Statement 
-// this reads: if job equal to teacher then run the case for teacher and console.log the statement below, if none of the cases match is will default
-var job = 'teacher' 
-switch (job){
-  case 'teacher':
-  case 'instructor':
-    console.log(`${firstName} teach kids how to code`)
-    break;
-  case 'driver':
-    console.log(`${firstName} drives an uber in Lisbon`)
-    break;
-  case 'designer':
-    console.log(`${firstName} designs beautiful websites `)
-    break;
-  default: 
-    console.log(`${firstName} does something else `)
-} 
+// // Switch Statement 
+// // this reads: if job equal to teacher then run the case for teacher and console.log the statement below, if none of the cases match is will default
+// const job = 'teacher' 
+// switch (job){
+//   case 'teacher':
+//   case 'instructor':
+//     console.log(`${firstName} teach kids how to code`)
+//     break;
+//   case 'driver':
+//     console.log(`${firstName} drives an uber in Lisbon`)
+//     break;
+//   case 'designer':
+//     console.log(`${firstName} designs beautiful websites `)
+//     break;
+//   default: 
+//     console.log(`${firstName} does something else `)
+// } 
 
-// this reads: the age that matches one of these case will run
-switch(true){
-  case age < 13:
-    console.log(`${firstName} is a boy`)
-    break
-  case age >= 13 && age < 20:
-    console.log(`${firstName} is a teenager`)
-    break  
-  case age >= 20 && age < 30:
-    console.log(`${firstName} is a young man`)
-    break
-  default:
-    console.log(`${firstName} is a man`)
+// // this reads: the age that matches one of these case will run
+// switch(true){
+//   case age < 13:
+//     console.log(`${firstName} is a boy`)
+//     break
+//   case age >= 13 && age < 20:
+//     console.log(`${firstName} is a teenager`)
+//     break  
+//   case age >= 20 && age < 30:
+//     console.log(`${firstName} is a young man`)
+//     break
+//   default:
+//     console.log(`${firstName} is a man`)
+// }
+
+
+
+
+/////////////////////Truthy and Falsy Values//////////////////
+
+ // fasly value is a value that is considered false when evaluated in an if/else statement(undefined, null, NaN, 0, '') 
+
+ //truthy values are values that return true when evaluated in an if/else statement(all value NOT falsy)
+
+ // HOW TO CHECK IF VARIABLE IS DEFINED 
+ const height 
+ height = 23
+ // if height = 0 I would still get undefined, but with the or statment I will not
+ if(height || height === 0){
+   console.log('Variable is defined')
+ } else {
+   console.log('Variable has NOT been defined')
+ }
+
+
+ // Equality Operators 
+if(height == '23'){
+  console.log('The == operator does type coercion')
 }
