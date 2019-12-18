@@ -270,23 +270,65 @@
 
 //////////////Function Expression and Declerations////////////
 
-// Function Decleration - they produce actions, do not produce immediate value 
-// function whatDoYouDo(job , firstName){
+// // Function Decleration - they produce actions, do not produce immediate value 
+// // function whatDoYouDo(job , firstName){
 
-// }
+// // }
 
-// Function Expression - they always produce a single value
-const whatDoYouDo = function(job, firstName){
-  switch(job){
-    case 'teacher':
-      return firstName + ' teaches kids to code'
-    case 'driver':
-      return firstName + ' drievs a cab in Lisbon'
-    case 'designer':
-      return firstName + ' designs beautiful websites'
-      default:
-        return firstName + ' does something else'
-  }
+// // Function Expression - they always produce a single value
+// const whatDoYouDo = function(job, firstName){
+//   switch(job){
+//     case 'teacher':
+//       return firstName + ' teaches kids to code'
+//     case 'driver':
+//       return firstName + ' drievs a cab in Lisbon'
+//     case 'designer':
+//       return firstName + ' designs beautiful websites'
+//       default:
+//         return firstName + ' does something else'
+//   }
+// } 
+
+// console.log(whatDoYouDo('teacher', 'john'))  
+
+
+
+///////////////////////////Arrays////////////////////////////
+
+const names = ['john', 'mark', 'eder', 'jane']
+// Another way to create and Array
+const years = new Array(1990, 1962, 1948)
+// Target single element in the array
+console.log(names[0]) //--> john
+// Target all elements in the array
+console.log(names)
+// See total number of elements in an array
+console.log(names.length) //--> 4
+
+// Mutate element in an array
+names[0] = 'ben'
+console.log(names)
+// adding mary element to the end of the array
+names[names.length] = 'mary'
+
+// Different Datatypes in an array
+const john = ['john', 'smith', 1990, 'teacher', false]
+// pushes element to end of array
+john.push('blue')
+// instead of pushing to the end of array, push to forward of array
+john.unshift('Mr')
+// deletes the last element in the array
+john.pop()
+// deletes the first element in the array
+john.shift()
+
+// Tells me the position element is in the array
+console.log(john.indexOf(1990)) //--> 2 
+
+// if the element is not present in the array it will return a -1
+if(john.indexOf('designer')){
+  console.log('does not exist')
 }
 
-console.log(whatDoYouDo('teacher', 'john'))  
+const isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John has cool designs'
+console.log(isDesigner)
