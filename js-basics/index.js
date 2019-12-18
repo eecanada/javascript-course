@@ -241,27 +241,52 @@
 
 /////////////////////////Functions///////////////////////////
 
-// this reads: I pass different years in as arguements, I returned something here so I can return something later
-function calculateAge(birthYear){
-  return 2019 - birthYear
-}
+// // this reads: I pass different years in as arguements, I returned something here so I can return something later
+// function calculateAge(birthYear){
+//   return 2019 - birthYear
+// }
+ 
+// const ageJohn = calculateAge(1994)
+// const ageMike = calculateAge(1944)
+// const ageJane = calculateAge(1974)
+// console.log(ageJohn, ageMike, ageJane)
 
-const ageJohn = calculateAge(1994)
-const ageMike = calculateAge(1944)
-const ageJane = calculateAge(1974)
-console.log(ageJohn, ageMike, ageJane)
+// // this reads: functions can actually call other functions. I pass year which is 1990 and then it is passed into  calculateAge(year) and calculates the age.
+// function yearsUntilRetirement(year, firstName){
+//   const age = calculateAge(year)
+//   const retirement = 65 - age
+//   if (retirement > 0){
+//     console.log(`${firstName}  retires in ${retirement} years`)
+//   } else {
+//     console.log(`${firstName} is already retired`)
+//   }
+// }
 
-// this reads: functions can actually call other functions. I pass year which is 1990 and then it is passed into  calculateAge(year) and calculates the age.
-function yearsUntilRetirement(year, firstName){
-  const age = calculateAge(year)
-  const retirement = 65 - age
-  if (retirement > 0){
-    console.log(`${firstName}  retires in ${retirement} years`)
-  } else {
-    console.log(`${firstName} is already retired`)
+// yearsUntilRetirement(1990, 'John')
+// yearsUntilRetirement(1959, 'Mike')
+// yearsUntilRetirement(1973, 'Mary')
+
+
+
+//////////////Function Expression and Declerations////////////
+
+// Function Decleration - they produce actions, do not produce immediate value 
+// function whatDoYouDo(job , firstName){
+
+// }
+
+// Function Expression - they always produce a single value
+const whatDoYouDo = function(job, firstName){
+  switch(job){
+    case 'teacher':
+      return firstName + ' teaches kids to code'
+    case 'driver':
+      return firstName + ' drievs a cab in Lisbon'
+    case 'designer':
+      return firstName + ' designs beautiful websites'
+      default:
+        return firstName + ' does something else'
   }
 }
 
-yearsUntilRetirement(1990, 'John')
-yearsUntilRetirement(1959, 'Mike')
-yearsUntilRetirement(1973, 'Mary')
+console.log(whatDoYouDo('teacher', 'john'))  
