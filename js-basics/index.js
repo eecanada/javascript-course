@@ -295,40 +295,71 @@
 
 ///////////////////////////Arrays////////////////////////////
 
-const names = ['john', 'mark', 'eder', 'jane']
-// Another way to create and Array
-const years = new Array(1990, 1962, 1948)
-// Target single element in the array
-console.log(names[0]) //--> john
-// Target all elements in the array
-console.log(names)
-// See total number of elements in an array
-console.log(names.length) //--> 4
+// const names = ['john', 'mark', 'eder', 'jane']
+// // Another way to create and Array
+// const years = new Array(1990, 1962, 1948)
+// // Target single element in the array
+// console.log(names[0]) //--> john
+// // Target all elements in the array
+// console.log(names)
+// // See total number of elements in an array
+// console.log(names.length) //--> 4
 
-// Mutate element in an array
-names[0] = 'ben'
-console.log(names)
-// adding mary element to the end of the array
-names[names.length] = 'mary'
+// // Mutate element in an array
+// names[0] = 'ben'
+// console.log(names)
+// // adding mary element to the end of the array
+// names[names.length] = 'mary'
 
-// Different Datatypes in an array
-const john = ['john', 'smith', 1990, 'teacher', false]
-// pushes element to end of array
-john.push('blue')
-// instead of pushing to the end of array, push to forward of array
-john.unshift('Mr')
-// deletes the last element in the array
-john.pop()
-// deletes the first element in the array
-john.shift()
+// // Different Datatypes in an array
+// const john = ['john', 'smith', 1990, 'teacher', false]
+// // pushes element to end of array
+// john.push('blue')
+// // instead of pushing to the end of array, push to forward of array
+// john.unshift('Mr')
+// // deletes the last element in the array
+// john.pop()
+// // deletes the first element in the array
+// john.shift()
 
-// Tells me the position element is in the array
-console.log(john.indexOf(1990)) //--> 2 
+// // Tells me the position element is in the array
+// console.log(john.indexOf(1990)) //--> 2 
 
-// if the element is not present in the array it will return a -1
-if(john.indexOf('designer')){
-  console.log('does not exist')
+// // if the element is not present in the array it will return a -1
+// if(john.indexOf('designer')){
+//   console.log('does not exist')
+// }
+
+// const isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John has cool designs'
+// console.log(isDesigner)
+
+
+/////////////////////Objects and Properties///////////////////
+
+// Object literal: an object with key and value pairs 
+const john = {
+  firstName: 'john',
+  lastName: 'smith',
+  birthYear: 1990,
+  family : ['jane','mark','bob','emily'],
+  job: 'teacher',
+  isMarried: false 
 }
 
-const isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John has cool designs'
-console.log(isDesigner)
+// using dot notation 
+console.log(john.firstName)//--> john
+// using string and bracket to get a value from a key
+console.log(john['lastName'])//--> smith
+// assigning a variable to a value in the object
+var x = 'birthYear'
+console.log(john[x])//--> 1990
+// using dot notation to mutate the object
+john.job = 'designer'
+console.log(john.job)//-> designer
+
+// Object Syntax: Another way of making an object
+const jane = new Object();
+jane.firstName = 'Jane';
+jane.birthYear = 1991
+jane['lastName'] = 'Brown'
+console.log(jane)
