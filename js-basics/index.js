@@ -336,30 +336,50 @@
 
 /////////////////////Objects and Properties///////////////////
 
-// Object literal: an object with key and value pairs 
+// // Object literal: an object with key and value pairs 
+// const john = {
+//   firstName: 'john',
+//   lastName: 'smith',
+//   birthYear: 1990,
+//   family : ['jane','mark','bob','emily'],
+//   job: 'teacher',
+//   isMarried: false 
+// }
+
+// // using dot notation 
+// console.log(john.firstName)//--> john
+// // using string and bracket to get a value from a key
+// console.log(john['lastName'])//--> smith
+// // assigning a variable to a value in the object
+// var x = 'birthYear'
+// console.log(john[x])//--> 1990
+// // using dot notation to mutate the object
+// john.job = 'designer'
+// console.log(john.job)//-> designer
+
+// // Object Syntax: Another way of making an object
+// const jane = new Object();
+// jane.firstName = 'Jane';
+// jane.birthYear = 1991
+// jane['lastName'] = 'Brown'
+// console.log(jane)
+
+/////////////////////Objects and Methods///////////////////
+
+// only object have methods 
+// this.birthYear = john.birthYear
 const john = {
-  firstName: 'john',
-  lastName: 'smith',
-  birthYear: 1990,
+  firstName : 'john',
+  lastName : 'smith',
+  birthYear : 1990,
   family : ['jane','mark','bob','emily'],
-  job: 'teacher',
-  isMarried: false 
+  job : 'teacher',
+  isMarried : false, 
+  calcAge: function(){
+    this.age = 2019 - this.birthYear
+  }
 }
 
-// using dot notation 
-console.log(john.firstName)//--> john
-// using string and bracket to get a value from a key
-console.log(john['lastName'])//--> smith
-// assigning a variable to a value in the object
-var x = 'birthYear'
-console.log(john[x])//--> 1990
-// using dot notation to mutate the object
-john.job = 'designer'
-console.log(john.job)//-> designer
-
-// Object Syntax: Another way of making an object
-const jane = new Object();
-jane.firstName = 'Jane';
-jane.birthYear = 1991
-jane['lastName'] = 'Brown'
-console.log(jane)
+// I am invoking the calAge function and passing in birthYear using this, then I am setting a new property of age with this.age and rhe value of that is 29
+john.calcAge()
+console.log(john)
