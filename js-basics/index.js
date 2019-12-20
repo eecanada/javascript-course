@@ -406,23 +406,23 @@
 //   i++
 // }
 
-// //continue and break statments 
-// const arr = ['john', 'mark','eder',1900,'jim']
-// for(let i = 0; i < arr.length; i++){
-//   // looping through this array, but everytime I reach something that is not a string, do not console.log, but keep looping to the next thing
+//continue and break statments 
+const arr = ['john', 'mark','eder',1900,'jim']
+for(let i = 0; i < arr.length; i++){
+  // looping through this array, but everytime I reach something that is not a string, do not console.log, but keep looping to the next thing
 
-//   // if string does not equal string then do continue
-//   if(typeof(arr[i]) !== 'string') continue 
+  // if string does not equal string then do continue
+  if(typeof(arr[i]) !== 'string') continue 
+  console.log(arr[i]) 
+}
+
+// once I hit something that is not a string then it will break out the loop
+// for(let i = 0; i < arr.length; i++){
+//   if(typeof(arr[i]) !== 'string') break
 //   console.log(arr[i]) 
 // }
 
-// // once I hit something that is not a string then it will break out the loop
-// // for(let i = 0; i < arr.length; i++){
-// //   if(typeof(arr[i]) !== 'string') break
-// //   console.log(arr[i]) 
-// // }
-
-// // looping backwards
-//  for(let i = arr.length; i >= 0; i--){ 
-//    console.log(arr[i])
-//  }
+// looping backwards
+ for(let i = arr.length; i >= 0; i--){ 
+   console.log(arr[i])
+ }
