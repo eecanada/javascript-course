@@ -366,20 +366,63 @@
 
 /////////////////////Objects and Methods///////////////////
 
-// only object have methods 
-// this.birthYear = john.birthYear
-const john = {
-  firstName : 'john',
-  lastName : 'smith',
-  birthYear : 1990,
-  family : ['jane','mark','bob','emily'],
-  job : 'teacher',
-  isMarried : false, 
-  calcAge: function(){
-    this.age = 2019 - this.birthYear
-  }
-}
+// // only object have methods 
+// // this.birthYear = john.birthYear
+// const john = {
+//   firstName : 'john',
+//   lastName : 'smith',
+//   birthYear : 1990,
+//   family : ['jane','mark','bob','emily'],
+//   job : 'teacher',
+//   isMarried : false, 
+//   calcAge: function(){
+//     this.age = 2019 - this.birthYear
+//   }
+// }
 
-// I am invoking the calAge function and passing in birthYear using this, then I am setting a new property of age with this.age and rhe value of that is 29
-john.calcAge()
-console.log(john)
+// // I am invoking the calAge function and passing in birthYear using this, then I am setting a new property of age with this.age and rhe value of that is 29
+// john.calcAge()
+// console.log(john)
+
+
+
+/////////////////////Loops and Iteration///////////////////
+
+// // the start i = 0, condition, and if condition is true, then log to console, and finally start loop again with i+1
+// for(let i = 0; i <= 20; i +=2){
+//   console.log(i)
+// }
+
+// // for looping through an array
+// const arr = ['john', 'mark','eder','jim']
+// for(let i = 0; i < arr.length; i++){
+//   console.log(arr[i]) 
+// }
+
+// // while looping through an array, only takes the condition 
+// let i = 0
+// while(i < arr.length){
+//   console.log(arr[i])
+//   i++
+// }
+
+// //continue and break statments 
+// const arr = ['john', 'mark','eder',1900,'jim']
+// for(let i = 0; i < arr.length; i++){
+//   // looping through this array, but everytime I reach something that is not a string, do not console.log, but keep looping to the next thing
+
+//   // if string does not equal string then do continue
+//   if(typeof(arr[i]) !== 'string') continue 
+//   console.log(arr[i]) 
+// }
+
+// // once I hit something that is not a string then it will break out the loop
+// // for(let i = 0; i < arr.length; i++){
+// //   if(typeof(arr[i]) !== 'string') break
+// //   console.log(arr[i]) 
+// // }
+
+// // looping backwards
+//  for(let i = arr.length; i >= 0; i--){ 
+//    console.log(arr[i])
+//  }
