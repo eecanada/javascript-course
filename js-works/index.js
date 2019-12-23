@@ -11,3 +11,5 @@
 // all JS codes need an enviroment to run in, and these enviroments are called execution context 
 
 // lastName === window.lastName, because lastName is a property of the window object
+
+// Everytime  I call a function it gets it's brand new execution context, there seems to be an excution stack when a function is being called within another function. The function that was called last is going to be the execution context block ontop 
