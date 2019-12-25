@@ -45,3 +45,7 @@ function foo (){
 foo()
 
 
+//////////////////Scoping///////////////////////////
+
+// Each function created a scope which is a space in which the variables are accessable. 
+
