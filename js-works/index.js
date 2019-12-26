@@ -17,35 +17,70 @@
 
 /////////////////Hoisting/////////////////////////
 
-// Example of Hoisting - wiht function decleration
-calculateAge(1965) //--> 54
+// // Example of Hoisting - wiht function decleration
+// calculateAge(1965) //--> 54
 
-function calculateAge(year){
-  console.log(2019 - year)
-}
+// function calculateAge(year){
+//   console.log(2019 - year)
+// }
  
-// Hoisting will NOT work with function expression
-retirement(1990) //--> error 
+// // Hoisting will NOT work with function expression
+// retirement(1990) //--> error 
 
-const retirement = function(year){
-  console.log(65 - (2019 - year))
-}
+// const retirement = function(year){
+//   console.log(65 - (2019 - year))
+// }
 
 
-// Hoisting will NOT work with global variable 
-console.log(age) //--> undefined  
-const age = 23
+// // Hoisting will NOT work with global variable 
+// console.log(age) //--> undefined  
+// const age = 23
  
-// Each have own execution object 
-function foo (){
-  const age = 65
-  console.log(age)
-}
+// // Each have own execution object 
+// function foo (){
+//   const age = 65
+//   console.log(age)
+// }
 
-foo()
+// foo()
 
 
 //////////////////Scoping///////////////////////////
 
-// Each function created a scope which is a space in which the variables are accessable. 
+// Each function creates a scope: which is a space in which the variables are accessable. 
 
+
+////////////////////This///////////////////////////
+
+// console.log(this) //--> window object is default object 
+
+// function calculateAge(year){
+//   console.log(2019 - year)
+//   console.log(this)
+// }
+
+// calculateAge(1994)
+
+const john = {
+  name: 'john',
+  yearOfBirth: 1990,
+  calculateAge: function () {
+    console.log(this , 1)//-> refers to the object that called the method, which is john object
+    console.log(2019 - this.yearOfBirth)
+
+    function innerFunction () {
+      console.log(this, 2) //---> window object
+      }
+      innerFunction()
+  }
+}
+
+john.calculateAge()
+
+const mike = {
+  name: 'mike',
+  yearOfBirth: 1994,
+  } 
+
+  mike.calculateAge = john.calculateAge
+  mike.calculateAge()
