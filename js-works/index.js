@@ -52,35 +52,35 @@
 
 ////////////////////This///////////////////////////
 
-// console.log(this) //--> window object is default object 
+// // console.log(this) //--> window object is default object 
 
-// function calculateAge(year){
-//   console.log(2019 - year)
-//   console.log(this)
+// // function calculateAge(year){
+// //   console.log(2019 - year)
+// //   console.log(this)
+// // }
+
+// // calculateAge(1994)
+
+// const john = {
+//   name: 'john',
+//   yearOfBirth: 1990,
+//   calculateAge: function () {
+//     console.log(this , 1)//-> refers to the object that called the method, which is john object
+//     console.log(2019 - this.yearOfBirth)
+
+//     function innerFunction () {
+//       console.log(this, 2) //---> window object
+//       }
+//       innerFunction()
+//   }
 // }
 
-// calculateAge(1994)
+// john.calculateAge()
 
-const john = {
-  name: 'john',
-  yearOfBirth: 1990,
-  calculateAge: function () {
-    console.log(this , 1)//-> refers to the object that called the method, which is john object
-    console.log(2019 - this.yearOfBirth)
+// const mike = {
+//   name: 'mike',
+//   yearOfBirth: 1994,
+//   } 
 
-    function innerFunction () {
-      console.log(this, 2) //---> window object
-      }
-      innerFunction()
-  }
-}
-
-john.calculateAge()
-
-const mike = {
-  name: 'mike',
-  yearOfBirth: 1994,
-  } 
-
-  mike.calculateAge = john.calculateAge
-  mike.calculateAge()
+//   mike.calculateAge = john.calculateAge
+//   mike.calculateAge()
