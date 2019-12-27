@@ -13,6 +13,7 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 */
 
+//GOALS
 // create game variables
 // generate random number 
 // manipulate the DOM 
@@ -50,6 +51,7 @@ document.querySelector('.dice').style.display = 'none'
 // Events: notifications that are sent to notify the code that something happened  on the webpage (clicking on a button, resizing a window, scrolling up or down)
 // Event Listener: a function that performs an action based on a certain event. It waits for a specific event to happen 
 
+//GOALS
 // set up event handler 
 // callback function 
 // anonymous functions
@@ -81,7 +83,21 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
   diceDOM.style.display = 'block' 
   // change the image in <img> tag 
   diceDOM.src =  `dice-${dice}.png`
-  // update current score 
-  document.getElementById(`current-${activePlayer}`).textContent = dice 
-
+  // update current score on the DOM or switch active player
+  if(dice !== 1){
+    roundScore += dice
+    document.getElementById(`current-${activePlayer}`).textContent = roundScore 
+  } else {
+    // switch players and set the roundScore which is current score to 0 
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0
+    roundScore = 0
+    // after a player gets a 1, the current score gets set to 0 
+    document.getElementById('current-0').textContent = '0'
+    document.getElementById('current-1').textContent = '0'
+  }
 })
+
+//GOALS
+// Ternary operator 
+// add,remove and toggel HTML classes
+
