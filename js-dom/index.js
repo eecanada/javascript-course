@@ -3,9 +3,7 @@
 // DOM: structured representation of an HTML document, that I am going to use to webpages to scripts like JS
 
 // For each HTML box there is an object in the DOM that I access and interact with. The DOM and JS are NOT the same thing
-
-
-
+ 
 /*
 GAME RULES:
 - The game has 2 players, playing in rounds
@@ -15,18 +13,34 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 */
 
-const scores, roundScores, activePlayer, dice
+// create game variables
+// generate random number 
+// manipulate the DOM 
+// read from the DOM 
+// change CSS Style 
 
-score = [0,0]
+////////////////////////////////////////////////// create game variables
+let scores, roundScore, activePlayer
+scores = [0,0]
 roundScore = 0
-activePlayer = 1
+activePlayer = 0 // 0 first player, 1 second player 
 
-dice = Math.floor(Math.random() * 6) + 1
+////////////////////////////////////////////////// generate random number in my dice from 1 - 6
+dice = Math.floor(Math.random() * 6) + 1 
+console.log(dice)
 
-document.querySelector('#current-' + activePlayer).textContent = dice
+///////////////////////////////////////////////// manipulate the DOM, document is object giving me access to the DOM,
+//querySelector selects first element that is finds. To change text in the element I use .textContent (plain text, NO HTML)
+document.querySelector(`#current-${activePlayer}`).textContent = dice 
+ 
+// using innerHTML to add HTML tags, something .textContent cannot do 
+// document.querySelector(`#current-${activePlayer}`).innerHTML = `<em>${dice}<em/>` 
 
-const x = document.querySelector('#score-0').textContent
-console.log(x)
+///////////////////////////////////////////////// read from the DOM 
+const globalScore = document.querySelector('#score-0').textContent
+console.log(globalScore) //---> 
 
-document,querySelector('.dice').style.display = 'none'
+///////////////////////////////////////////////// change CSS Style 
+// dice does not appear at the begining of the game
+document.querySelector('.dice').style.display = 'none' 
 
