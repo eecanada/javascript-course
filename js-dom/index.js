@@ -57,6 +57,11 @@ document.querySelector('.dice').style.display = 'none'
 // anonymous functions
 // select element by ID
 // change the image in <img> tag 
+// Ternary operator
+    // add,remove and toggel HTML classes
+
+
+
 
 // Both the global and current score are set to 0
 document.getElementById('score-0').textContent = '0'
@@ -94,10 +99,15 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     // after a player gets a 1, the current score gets set to 0 
     document.getElementById('current-0').textContent = '0'
     document.getElementById('current-1').textContent = '0'
+
+    ////////////////////////////// add,remove and toggel HTML classes
+    document.querySelector('.player-0-panel').classList.toggle('active')
+    document.querySelector('.player-1-panel').classList.toggle('active')
+
+    document.querySelector('.dice').style.display = 'none'
+
   }
 })
 
-//GOALS
-// Ternary operator 
-// add,remove and toggel HTML classes
+
 
