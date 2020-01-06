@@ -94,6 +94,7 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     roundScore += dice
     document.getElementById(`current-${activePlayer}`).textContent = roundScore 
   } else {
+    // NEXT PLAYER
     ////////////////////////switch players and set the roundScore which is current score to 0 
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0
     // globalVariable roundScore  
@@ -105,9 +106,37 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     // what toggle does is that it add the class if it is not there, and if it is there, then it is removed
     document.querySelector('.player-0-panel').classList.toggle('active');
     document.querySelector('.player-1-panel').classList.toggle('active')
-    diceDOM.style.display = 'none'
+    document.querySelector('.dice').style.display = 'none'
   }
 })
 
 
+document.querySelector('.btn-hold').addEventListener('click', function(){
+  ///////////////// add current score to global score 
+  scores[activePlayer] += roundScore
+ //////////////////// update UI of current player 
+  document.querySelector(`#score-${activePlayer}`).textContent = scores[activePlayer]
+  /////////////////// check if player won
+  if(scores[activePlayer] >= 10){
+    document.querySelector(`#name-${activePlayer}`).textContent = 'Winner!'
+    document.querySelector('.dice').style.display = 'none'
+    document.querySelector(`.player-${activePlayer}-panel`).classList.add('winner')
+    document.querySelector(`.player-${activePlayer}-panel`).classList.remove('active')
+
+  } else{
+    //////// Next Player 
+    nextPlayer()
+  }  
+})
+
+// made this function because I am using the code in the fuction twice on both of my anonymous to let me move on to the next player
+function nextPlayer (){
+  activePlayer === 0 ? activePlayer = 1 : activePlayer = 0
+  roundScore = 0
+  document.getElementById('current-0').textContent = '0'
+  document.getElementById('current-1').textContent = '0'
+  document.querySelector('.player-0-panel').classList.toggle('active');
+  document.querySelector('.player-1-panel').classList.toggle('active')
+  document.querySelector('.dice').style.display = 'none'
+}
 
