@@ -23,7 +23,7 @@ GAME RULES:
 ////////////////////////////////////////////////// create game variables
 let scores, roundScore, activePlayer
 scores = [0,0]
-roundScore = 0
+roundScore = 0 // is equal to current-
 activePlayer = 0 // 0 first player, 1 second player 
 
 ////////////////////////////////////////////////// generate random number in my dice from 1 - 6
@@ -34,12 +34,12 @@ activePlayer = 0 // 0 first player, 1 second player
 //querySelector selects first element that is finds. To change text in the element I use .textContent (plain text, NO HTML)
 // document.querySelector(`#current-${activePlayer}`).textContent = dice 
  
-// using innerHTML to add HTML tags, something .textContent cannot do 
+// using innerHTML to add HTML tags, something .textContent cannot do, also tags need to be in strings  
 // document.querySelector(`#current-${activePlayer}`).innerHTML = `<em>${dice}<em/>` 
 
 ///////////////////////////////////////////////// read from the DOM 
 // const globalScore = document.querySelector('#score-0').textContent
-// console.log(globalScore) //---> 
+// console.log(globalScore) //---> 43
 
 ///////////////////////////////////////////////// change CSS Style 
 // dice does not appear at the begining of the game
@@ -71,7 +71,7 @@ document.getElementById('current-1').textContent = '0'
 
 
 ///////////////////////////////////////////////////////// set up event handler && callback funtion 
-// btn is the callback function, because the function is not called by me, but another function, a function that I pass onto another fucntion as an arguement so in this case addEventListener('click', btn), and the addEventListener function will call my btn function
+// btn is the callback function, because the function is not called by me, but another function, a function that I pass onto another func  tion as an arguement so in this case addEventListener('click', btn), and the addEventListener function will call my btn function
 
 // function btn(){
 
@@ -81,38 +81,33 @@ document.getElementById('current-1').textContent = '0'
 //////////////////////////////////////////////////////////anonymous functions
 // can only be within the context 
 document.querySelector('.btn-roll').addEventListener('click', function(){
-  // set random number
+  //////////////////////// set random number
   const dice = Math.floor(Math.random() * 6) + 1 
-  // display random number as dice image
+  ///////////////////// display random number as dice image
   const diceDOM = document.querySelector('.dice')
   diceDOM.style.display = 'block' 
-  // change the image in <img> tag 
+  //////////////////////////// change the image in <img> tag 
   diceDOM.src =  `dice-${dice}.png`
-  // update current score on the DOM or switch active player
+  /////////////////////////// update current score on the DOM or switch active player
   if(dice !== 1){
+    // roundScore = roundScore + dice 
     roundScore += dice
     document.getElementById(`current-${activePlayer}`).textContent = roundScore 
   } else {
-    // switch players and set the roundScore which is current score to 0 
+    ////////////////////////switch players and set the roundScore which is current score to 0 
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0
+    // globalVariable roundScore  
     roundScore = 0
-    // after a player gets a 1, the current score gets set to 0 
+    /////////////////////// after a player gets a 1, the current score gets set to 0 
     document.getElementById('current-0').textContent = '0'
     document.getElementById('current-1').textContent = '0'
-
-    ////////////////////////////// add,remove and toggel HTML classes
-    document.querySelector('.player-0-panel').classList.toggle('active')
+    ////////////////////////////// add,remove and toggle HTML classes
+    // what toggle does is that it add the class if it is not there, and if it is there, then it is removed
+    document.querySelector('.player-0-panel').classList.toggle('active');
     document.querySelector('.player-1-panel').classList.toggle('active')
-
-    document.querySelector('.dice').style.display = 'none'
-
+    diceDOM.style.display = 'none'
   }
 })
 
-document.querySelector('.btn-hold').addEventListener('click', function(){
-  scores[activePlayer] += roundScore
-
-  document.querySelector(`#score-${activePlayer}`)
-})
 
 
