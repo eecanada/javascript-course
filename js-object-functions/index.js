@@ -35,22 +35,48 @@
 // console.log(tim.lastName)
 
 
-const Car = function (brand, year, color){
-  this.brand = brand,
-  this.year = year,
-  this.color = color 
+// const Car = function (brand, year, color){
+//   this.brand = brand,
+//   this.year = year,
+//   this.color = color 
+// }
+
+// Car.prototype.loveCar = function (brand) {
+//   console.log(`i love my new ${this.brand}`)
+// } 
+
+// const toyota = new Car ('toyota', 2017, 'silver')
+// console.log(toyota)
+// toyota.loveCar()
+
+// //////////////////////////////////PROTOTYPE CHAIN IN THE CONSOLE//////////////////////
+
+// // new methods to check my new instances  if they have a certain property in the object or to see what object are they being an instance of  
+// console.log(toyota.hasOwnProperty('brand')) // true
+// console.log(toyota instanceof Car) // true 
+
+
+//////////////////////////////////OBJECT.CREATE//////////////////////
+
+// The difference between object.create and function constructor, is that object.create builds an object that inherits directly from the one that I passed into the first arguement, while the with the function constructor the newly created object inherits from the constructor prototype property, so that object I made is an instance, but with object.create it inherits.
+
+const personProto = {
+  calculateAge: function(){
+    console.log(2020 - this.yearOfBirth)
+    },
+  lastName: 'Smith'
 }
 
-Car.prototype.loveCar = function (brand) {
-  console.log(`i love my new ${this.brand}`)
-} 
+const john = Object.create(personProto)
+john.name = 'John'
+john.yearOfBirth = 1990
+john.job = 'Dentist'
+console.log(john ) // --> logs the whole object
 
-const toyota = new Car ('toyota', 2017, 'silver')
-console.log(toyota)
-toyota.loveCar()
+const jane = Object.create(personProto,{
+  name: {value: 'Jane'},
+  yearOfBirth: {value: 1973},
+  job: {value: 'Teacher'}
+})
 
-//////////////////////////////////PROTOTYPE CHAIN IN THE CONSOLE//////////////////////
 
-// new methods to check my new instances  if they have a certain property in the object or to see what object are they being an instance of  
-console.log(toyota.hasOwnProperty('brand')) // true
-console.log(toyota instanceof Car) // true 
