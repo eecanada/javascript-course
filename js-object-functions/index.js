@@ -118,89 +118,112 @@
 //////////////////////////////////PASSING FUNCTIONS AS ARGUEMENTS//////////////////////
 // Functions are also objects, with functions I can do the same things with objects
 
-// array
-var years = [1990, 1965, 1937, 2005, 1998]
+// // array
+// var years = [1990, 1965, 1937, 2005, 1998]
 
-// FUNCTION 1 - a function that I can pass an array and a function as parameters 
-function arrayCalc(arr,fn){
-  // this stores results 
-  var arrRes = []
-  // this loops through array
-  for(var i = 0; i < arr.length; i++){
-  // what I am pushing is the result of callling my fn( )
-    arrRes.push(fn(arr[i]))
+// // FUNCTION 1 - a function that I can pass an array and a function as parameters 
+// function arrayCalc(arr,fn){
+//   // this stores results 
+//   var arrRes = []
+//   // this loops through array
+//   for(var i = 0; i < arr.length; i++){
+//   // what I am pushing is the result of callling my fn( )
+//     arrRes.push(fn(arr[i]))
+//   }
+//   return arrRes
+// }
+
+// // FUNCTION 2 
+// function calculateAge(el) {
+//   return 2020 - el
+// }
+
+// // FUNCTION 3
+// function isFullAge(el) {
+//   return el >= 18
+// }
+
+// // FUNCTION 4
+// function maxHeartRate(el) {
+//   if(el >= 18 && el < 81){
+//     return Math.round(206.9 - (0.67 * el))
+//   }
+//   return -1 
+// }
+
+// function oldOrYoung (el){
+//   if(el > 40){
+//     return 'old'
+//   } else if (el < 40){
+//     return 'young'
+//   }
+// }
+
+// // Here I am passing in the years array and also my calculateAge function
+// var ages = arrayCalc(years,calculateAge)
+
+// // Here I am passing in the ages and also my calculateAge function
+// var fullAges = arrayCalc(ages, isFullAge)
+
+// // Here I am passing in the ages and also my maxHeartRate function
+// var rates = arrayCalc (ages, maxHeartRate)
+
+// var youth = arrayCalc(ages, oldOrYoung)
+
+// console.log(ages)
+// console.log(fullAges)
+// console.log(rates)
+// console.log(youth)
+
+
+//////////////////////////////////FUNCTIONS RETURNING FUNCTIONS//////////////////////
+
+function interviewQuestions(job){
+  if (job === 'designer'){
+    return function(name){
+      console.log(`${name}, can you explain what UX design is?`)
+    }
+  } else if (job === 'teacher'){
+    return function(name){
+      console.log(`${name}, what subject do you teach?`)
+    }
+  } else {
+    return function (name) { 
+      console.log(`${name}, what do you do?`)
+     }
   }
-  return arrRes
 }
 
-// FUNCTION 2 
-function calculateAge(el) {
-  return 2020 - el
-}
+// const designer = interviewQuestions('designer')
+// console.log(designer('eder'))
 
-// FUNCTION 3
-function isFullAge(el) {
-  return el >= 18
-}
 
-// FUNCTION 4
-function maxHeartRate(el) {
-  if(el >= 18 && el < 81){
-    return Math.round(206.9 - (0.67 * el))
+// const teacherQuestions = interviewQuestions('teacher')
+// teacherQuestions('eder')
+// console.log(teacherQuestions)
+
+
+
+
+function carQuestions(car){
+  if(car === 'toyota'){
+    return function (name) {
+      console.log(`${name}, how reliable is your car?`)
+      }
+  } else if (car === 'bmw'){
+    return function (name) {
+      console.log(`${name}, how expensive is your car?`)
+      }
+  } else {
+    return function(name){
+      console.log(`${name}, what do you love about your car?`)
+    }
   }
-  return -1 
 }
 
-function oldOrYoung (el){
-  if(el > 40){
-    return 'old'
-  } else if (el < 40){
-    return 'young'
-  }
-}
+const affordableCar = carQuestions('toyota')('eder')
+console.log(affordableCar)
 
-// Here I am passing in the years array and also my calculateAge function
-var ages = arrayCalc(years,calculateAge)
-
-// Here I am passing in the ages and also my calculateAge function
-var fullAges = arrayCalc(ages, isFullAge)
-
-// Here I am passing in the ages and also my maxHeartRate function
-var rates = arrayCalc (ages, maxHeartRate)
-
-var youth = arrayCalc(ages, oldOrYoung)
-
-console.log(ages)
-console.log(fullAges)
-console.log(rates)
-console.log(youth)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const expensiveCar = carQuestions('bmw')
+expensiveCar('mike')
+console.log(expensiveCar)
