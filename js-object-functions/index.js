@@ -80,36 +80,127 @@
 // })
 
 //////////////////////////////////PRIMITIVES VS OBJECTS//////////////////////
-// Primitive
-var a = 23
-var b = a
-a = 46
-// console.log(a,b) // -> 46,23
+// // Primitive
+// var a = 23
+// var b = a
+// a = 46
+// // console.log(a,b) // -> 46,23
 
 
 
-// Objects
-var obj1 = {
-  name: 'eder',
-  age: 24
+// // Objects
+// var obj1 = {
+//   name: 'eder',
+//   age: 24
+// }
+
+// var obj2 = obj1
+// obj1.age = 30
+
+// // console.log(obj1,obj2)
+
+// // Functions
+// var age = 27
+// var obj = {
+//   name: 'mike',
+//   city: 'LA',
+// }
+
+// function change (a,b){
+//   a = 30
+//   b.city = 'SF'
+// }
+
+// change(age, obj)
+// console.log(age, obj.city) //---> 27, 
+
+
+//////////////////////////////////PASSING FUNCTIONS AS ARGUEMENTS//////////////////////
+// Functions are also objects, with functions I can do the same things with objects
+
+// array
+var years = [1990, 1965, 1937, 2005, 1998]
+
+// FUNCTION 1 - a function that I can pass an array and a function as parameters 
+function arrayCalc(arr,fn){
+  // this stores results 
+  var arrRes = []
+  // this loops through array
+  for(var i = 0; i < arr.length; i++){
+  // what I am pushing is the result of callling my fn( )
+    arrRes.push(fn(arr[i]))
+  }
+  return arrRes
 }
 
-var obj2 = obj1
-obj1.age = 30
-
-// console.log(obj1,obj2)
-
-// Functions
-var age = 27
-var obj = {
-  name: 'mike',
-  city: 'LA',
+// FUNCTION 2 
+function calculateAge(el) {
+  return 2020 - el
 }
 
-function change (a,b){
-  a = 30
-  b.city = 'SF'
+// FUNCTION 3
+function isFullAge(el) {
+  return el >= 18
 }
 
-change(age, obj)
-console.log(age, obj.city) //---> 27, SF
+// FUNCTION 4
+function maxHeartRate(el) {
+  if(el >= 18 && el < 81){
+    return Math.round(206.9 - (0.67 * el))
+  }
+  return -1 
+}
+
+function oldOrYoung (el){
+  if(el > 40){
+    return 'old'
+  } else if (el < 40){
+    return 'young'
+  }
+}
+
+// Here I am passing in the years array and also my calculateAge function
+var ages = arrayCalc(years,calculateAge)
+
+// Here I am passing in the ages and also my calculateAge function
+var fullAges = arrayCalc(ages, isFullAge)
+
+// Here I am passing in the ages and also my maxHeartRate function
+var rates = arrayCalc (ages, maxHeartRate)
+
+var youth = arrayCalc(ages, oldOrYoung)
+
+console.log(ages)
+console.log(fullAges)
+console.log(rates)
+console.log(youth)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
