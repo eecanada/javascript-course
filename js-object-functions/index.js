@@ -178,52 +178,74 @@
 
 //////////////////////////////////FUNCTIONS RETURNING FUNCTIONS//////////////////////
 
-function interviewQuestions(job){
-  if (job === 'designer'){
-    return function(name){
-      console.log(`${name}, can you explain what UX design is?`)
-    }
-  } else if (job === 'teacher'){
-    return function(name){
-      console.log(`${name}, what subject do you teach?`)
-    }
-  } else {
-    return function (name) { 
-      console.log(`${name}, what do you do?`)
-     }
-  }
-}
+// function interviewQuestions(job){
+//   if (job === 'designer'){
+//     return function(name){
+//       console.log(`${name}, can you explain what UX design is?`)
+//     }
+//   } else if (job === 'teacher'){
+//     return function(name){
+//       console.log(`${name}, what subject do you teach?`)
+//     }
+//   } else {
+//     return function (name) { 
+//       console.log(`${name}, what do you do?`)
+//      }
+//   }
+// }
 
-// const designer = interviewQuestions('designer')
-// console.log(designer('eder'))
-
-
-// const teacherQuestions = interviewQuestions('teacher')
-// teacherQuestions('eder')
-// console.log(teacherQuestions)
+// // const designer = interviewQuestions('designer')
+// // console.log(designer('eder'))
 
 
+// // const teacherQuestions = interviewQuestions('teacher')
+// // teacherQuestions('eder')
+// // console.log(teacherQuestions)
 
 
-function carQuestions(car){
-  if(car === 'toyota'){
-    return function (name) {
-      console.log(`${name}, how reliable is your car?`)
-      }
-  } else if (car === 'bmw'){
-    return function (name) {
-      console.log(`${name}, how expensive is your car?`)
-      }
-  } else {
-    return function(name){
-      console.log(`${name}, what do you love about your car?`)
-    }
-  }
-}
 
-const affordableCar = carQuestions('toyota')('eder')
-console.log(affordableCar)
 
-const expensiveCar = carQuestions('bmw')
-expensiveCar('mike')
-console.log(expensiveCar)
+// function carQuestions(car){
+//   if(car === 'toyota'){
+//     return function (name) {
+//       console.log(`${name}, how reliable is your car?`)
+//       }
+//   } else if (car === 'bmw'){
+//     return function (name) {
+//       console.log(`${name}, how expensive is your car?`)
+//       }
+//   } else {
+//     return function(name){
+//       console.log(`${name}, what do you love about your car?`)
+//     }
+//   }
+// }
+
+// const affordableCar = carQuestions('toyota')('eder')
+// console.log(affordableCar)
+
+// const expensiveCar = carQuestions('bmw')
+// expensiveCar('mike')
+// console.log(expensiveCar)
+
+//////////////////////////////////Immediately Invoked Function Expressions//////////////////////
+
+// function game(){
+//   const score = Math.random() * 10
+//   console.log(score >= 5)
+// }
+// game()
+
+
+
+// what is inside of parenthisis cannot be a statement, so it will treat this IIFE like a function expression NOT function decleration. The score varible cannot be accessed from the outside. These functions are useful because they are not meant to be reusable code> I want to create a scope that is hidden from the outside scope, where I can safefully put variable. It acts as data privacy.
+(function(){
+  const score = Math.random() * 10
+  console.log(score >= 5)
+}) ();
+
+// Here I am using the same IIFE and I can even pass a parameter through it
+(function(goodLuck){
+  const score = Math.random() * 10
+  console.log(score >= 5 - goodLuck)
+})(5)
