@@ -230,22 +230,40 @@
 
 //////////////////////////////////Immediately Invoked Function Expressions//////////////////////
 
-// function game(){
+// // function game(){
+// //   const score = Math.random() * 10
+// //   console.log(score >= 5)
+// // }
+// // game()
+
+
+
+// // what is inside of parenthisis cannot be a statement, so it will treat this IIFE like a function expression NOT function decleration. The score varible cannot be accessed from the outside. These functions are useful because they are not meant to be reusable code> I want to create a scope that is hidden from the outside scope, where I can safefully put variable. It acts as data privacy.
+// (function(){
 //   const score = Math.random() * 10
 //   console.log(score >= 5)
-// }
-// game()
+// }) ();
+
+// // Here I am using the same IIFE and I can even pass a parameter through it
+// (function(goodLuck){
+//   const score = Math.random() * 10
+//   console.log(score >= 5 - goodLuck)
+// })(5)
 
 
+//////////////////////////////////Closures//////////////////////////
 
-// what is inside of parenthisis cannot be a statement, so it will treat this IIFE like a function expression NOT function decleration. The score varible cannot be accessed from the outside. These functions are useful because they are not meant to be reusable code> I want to create a scope that is hidden from the outside scope, where I can safefully put variable. It acts as data privacy.
-(function(){
-  const score = Math.random() * 10
-  console.log(score >= 5)
-}) ();
-
-// Here I am using the same IIFE and I can even pass a parameter through it
-(function(goodLuck){
-  const score = Math.random() * 10
-  console.log(score >= 5 - goodLuck)
-})(5)
+function retirement(retirementAge) {
+  var a = ' years left until retirement.';
+  return function(yearOfBirth) {
+      var age = 2016 - yearOfBirth;
+      console.log((retirementAge - age) + a);
+  }
+}
+var retirementUS = retirement(66);
+var retirementGermany = retirement(65);
+var retirementIceland = retirement(67);
+retirementGermany(1990);
+retirementUS(1990);
+retirementIceland(1990);
+//retirement(66)(1990);
