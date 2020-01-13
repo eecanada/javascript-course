@@ -255,7 +255,6 @@
 
 // so closure is when an inner function is able to access the variables of the outer function, even after the outer function has returned. 
 
-
 function retirement(ageOfRetirement){
   const sentence = 'years left of retirement.'
   return function(birthYear){
@@ -264,14 +263,39 @@ function retirement(ageOfRetirement){
   }
 }
 
+// const retirementUnitedStates = retirement(65)
+// retirementUnitedStates(1994)
+// console.log(retirementUnitedStates) //--> 39 years left of retirement.
 
-const retirementUnitedStates = retirement(65)
-retirementUnitedStates(1994)
-console.log(retirementUnitedStates) //--> 39 years left of retirement.
+// const retirementFinland = retirement(60)(1990) 
+// console.log(retirementFinland) // --> 30 years left of retirement.
+
+function interviewQuestions(job){
+  return function(name){
+    if (job === 'designer'){
+      console.log(`${name}, can you explain what UX design is?`)
+    } else if (job === 'teacher'){
+      console.log(`${name}, what subject do you teach?`)
+    } else {
+      console.log(`${name}, what do you do?`)
+    }
+  }
+}
+  
+const designer = interviewQuestions('designer')('eder')
 
 
-const retirementFinland = retirement(60)(1990) 
-console.log(retirementFinland) // --> 30 years left of retirement.
+
+ 
+
+
+
+
+
+
+
+
+
 
 
 
