@@ -1,8 +1,8 @@
-// ///////////////////////OBEJECTS//////////////////
+// /////////////////////////////////OBEJECTS/////////////////////////////////
 
 // // Person object --> making other people using the person objects(constructor) is called INSTANCES and then using athletes to use the person object is called INHERITANCE
 
-// //////////////////////////////////FUNCTION CONSTRUCTOR//////////////////////
+// //////////////////////////////////FUNCTION CONSTRUCTOR//////////////////////////////
 
 // // object
 // const eder = {
@@ -49,14 +49,14 @@
 // console.log(toyota)
 // toyota.loveCar()
 
-// //////////////////////////////////PROTOTYPE CHAIN IN THE CONSOLE//////////////////////
+// //////////////////////////////////PROTOTYPE CHAIN IN THE CONSOLE///////////////////////////
 
 // // new methods to check my new instances  if they have a certain property in the object or to see what object are they being an instance of  
 // console.log(toyota.hasOwnProperty('brand')) // true
 // console.log(toyota instanceof Car) // true 
 
 
-//////////////////////////////////OBJECT.CREATE//////////////////////
+//////////////////////////////////OBJECT.CREATE/////////////////////////////////////////
 
 // // The difference between object.create and function constructor, is that object.create builds an object that inherits directly from the one that I passed into the first arguement, while the with the function constructor the newly created object inherits from the constructor prototype property, so that object I made is an instance, but with object.create it inherits.
 
@@ -79,7 +79,7 @@
 //   job: {value: 'Teacher'}
 // })
 
-//////////////////////////////////PRIMITIVES VS OBJECTS//////////////////////
+//////////////////////////////////PRIMITIVES VS OBJECTS///////////////////////////////////////
 // // Primitive
 // var a = 23
 // var b = a
@@ -115,7 +115,7 @@
 // console.log(age, obj.city) //---> 27, 
 
 
-//////////////////////////////////PASSING FUNCTIONS AS ARGUEMENTS//////////////////////
+//////////////////////////////////PASSING FUNCTIONS AS ARGUEMENTS//////////////////////////////////////
 // Functions are also objects, with functions I can do the same things with objects
 
 // // array
@@ -176,7 +176,7 @@
 // console.log(youth)
 
 
-//////////////////////////////////FUNCTIONS RETURNING FUNCTIONS//////////////////////
+//////////////////////////////////FUNCTIONS RETURNING FUNCTIONS///////////////////////////////////
 
 // function interviewQuestions(job){
 //   if (job === 'designer'){
@@ -251,42 +251,104 @@
 // })(5)
 
 
-//////////////////////////////////Closures//////////////////////////
+//////////////////////////////////CLOSURES///////////////////////////////////////
 
 // so closure is when an inner function is able to access the variables of the outer function, even after the outer function has returned. 
 
-function retirement(ageOfRetirement){
-  const sentence = 'years left of retirement.'
-  return function(birthYear){
-    const age = 2020 - birthYear
-    console.log(`${ageOfRetirement}` - `${age}` + ` ${sentence}`)
-  }
-}
+// function retirement(ageOfRetirement){
+//   const sentence = 'years left of retirement.'
+//   return function(birthYear){
+//     const age = 2020 - birthYear
+//     console.log(`${ageOfRetirement}` - `${age}` + ` ${sentence}`)
+//   }
+// }
 
-// const retirementUnitedStates = retirement(65)
-// retirementUnitedStates(1994)
-// console.log(retirementUnitedStates) //--> 39 years left of retirement.
+// // const retirementUnitedStates = retirement(65)
+// // retirementUnitedStates(1994)
+// // console.log(retirementUnitedStates) //--> 39 years left of retirement.
 
-// const retirementFinland = retirement(60)(1990) 
-// console.log(retirementFinland) // --> 30 years left of retirement.
+// // const retirementFinland = retirement(60)(1990) 
+// // console.log(retirementFinland) // --> 30 years left of retirement.
 
-function interviewQuestions(job){
-  return function(name){
-    if (job === 'designer'){
-      console.log(`${name}, can you explain what UX design is?`)
-    } else if (job === 'teacher'){
-      console.log(`${name}, what subject do you teach?`)
-    } else {
-      console.log(`${name}, what do you do?`)
+// function interviewQuestions(job){
+//   return function(name){
+//     if (job === 'designer'){
+//       console.log(`${name}, can you explain what UX design is?`)
+//     } else if (job === 'teacher'){
+//       console.log(`${name}, what subject do you teach?`)
+//     } else {
+//       console.log(`${name}, what do you do?`)
+//     }
+//   }
+// }
+  
+// const designer = interviewQuestions('designer')('eder')
+
+
+///////////////////////////////////////////BIND, CALL, AND APPLY//////////////////////////////////////////
+
+const john = {
+  name: ' john',
+  job: 'teacher',
+  age: 27,
+  presentation: function (style, timeOfDay){
+    if (style === 'formal'){
+      console.log(`Good ${timeOfDay}, my name is ${this.name}. I am a ${this.age} year old ${this.job}.`)
+    } else if (style === 'friendly'){
+      console.log(`Hey what's up! My name is ${this.name}, and I am a ${this.age} year old ${this.job}. Have a nice ${timeOfDay}`)
     }
   }
 }
-  
-const designer = interviewQuestions('designer')('eder')
+john.presentation('formal','morning') //--> Good morning, my name is  john. I am a 27 year old teacher
+
+// Example of using the call method on the john.presentation function. This allows me to me to use the presentation method from the john object on my emily object. this is called method borowing 
+const emily = {
+  name: 'emily',
+  job: 'designer',
+  age: 24
+}
+
+john.presentation.call(emily, 'friendly', 'afternoon')//--> Hey what's up! My name is emily, and I am a 24 year old designer.
+
+
+// Example of bind where I can preset the value of a certain parameter, and leabve the other blank 
+const johnFriendly = john.presentation.bind(john, 'friendly')
+johnFriendly('morning') //--> Hey what's up! My name is  john, and I am a 27 year old teacher. Have a nice morning
+johnFriendly('night') //-->Hey what's up! My name is  john, and I am a 27 year old teacher. Have a nice night
+
+const formalEmily = john.presentation.bind(emily, 'formal')
+formalEmily('evening') //--> Good evening, my name is emily. I am a 24 year old designer.
+formalEmily('afternoon') //--> Good afternoon, my name is emily. I am a 24 year old designer.
 
 
 
- 
+// NEW EXAMPLE
+var years = [1990, 1965, 1937, 2005, 1998]
+function arrayCalc(arr, fn) {
+  var arrRes = []
+  for(var i = 0; i < arr.length; i++) {
+    arrRes.push(fn(arr[i]))
+  }
+  return arrRes;
+}
+
+function calculateAge(el) {
+  return 2016 - el;
+}
+function isFullAge(limit, el) {
+  return el >= limit;
+}
+
+// this function is calculating the ages of the years array
+const ages = arrayCalc(years, calculateAge)
+console.log(ages) //-->[ 26, 51, 79, 11, 18 ]
+
+const fullAgesJapan = arrayCalc(ages, isFullAge.bind(this,20))
+console.log(fullAgesJapan)//-->[ true, true, true, false, false ]
+
+
+
+
 
 
 
