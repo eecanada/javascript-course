@@ -221,7 +221,7 @@ function carQuestions(car){
   }
 }
 
-const affordableCar = carQuestions('toyota')('eder')
+const affordbleCar = carQuestions('toyota')('eder')
 console.log(affordableCar)
 
 const expensiveCar = carQuestions('bmw')
