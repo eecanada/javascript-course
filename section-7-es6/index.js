@@ -48,16 +48,41 @@
 
 ///////////////////////////////////////////BLOCKS AND IIFES/////////////////////////////////////////////////////////////
 
-//ES6
-{
-  const a = 1
-  let b = 2 
-  var c = 3 
-}
-console.log(a + b) // error since values are not accessible from outside the block
-console.log(c) // 3 variables with the var keyword, it does not matter if there are inside or outaide the block they will console log because they are function scope and not blocked scope
+// //ES6
+// {
+//   const a = 1
+//   let b = 2 
+//   var c = 3 
+// }
+// console.log(a + b) // error since values are not accessible from outside the block
+// console.log(c) // 3 variables with the var keyword, it does not matter if there are inside or outaide the block they will console log because they are function scope and not blocked scope
 
-//ES5 - a making a variable that is only accesible from the block 
-(function(){
-  var c = 3
-})()
+// //ES5 - a making a variable that is only accesible from the block 
+// (function(){
+//   var c = 3
+// })()
+
+
+
+////////////////////////////////////////////////////STRINGS////////////////////////////////////////////////////////////
+
+// let firstName = 'john'
+// let lastName = 'Smith'
+// const yearOfBirth = 1990
+
+// function calcAge (year){
+//   return 2016 - year
+// }
+
+// //ES5 
+// console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today he is ' + calcAge(yearOfBirth))
+
+// //ES6 - template literal 
+// console.log( `This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today he is ${calcAge(yearOfBirth)}`)
+
+
+// const n = `${firstName} ${lastName}`
+// console.log(n.startsWith('j')) //true, since the first letter of the name is j
+// console.log(n.endsWith('h')) // true, since the last letter of the name is h
+// console.log(n.includes(' ')) // true, since the name does include a space, so this test to catch any letter
+// console.log(firstName.repeat(5)) // johnjohnjohnjohnjohn
