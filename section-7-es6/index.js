@@ -1,4 +1,4 @@
-///////////////////////////////////////////LET AND CONST////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////LET AND CONST////////////////////////////////////////////////////////////////
 
 //ES5 - function scope
 // var name5 = 'Jane Smith'
@@ -46,7 +46,7 @@
 
 
 
-///////////////////////////////////////////BLOCKS AND IIFES/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////BLOCKS AND IIFES/////////////////////////////////////////////////////////////////
 
 // //ES6
 // {
@@ -64,7 +64,7 @@
 
 
 
-////////////////////////////////////////////////////STRINGS////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////STRINGS////////////////////////////////////////////////////////////
 
 // let firstName = 'john'
 // let lastName = 'Smith'
@@ -89,34 +89,66 @@
 
 
 
-////////////////////////////////////////////////////ARROW FUNCTIONS/////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////ARROW FUNCTIONS///////////////////////////////////////////////////////
 
-const years = [1990, 1965, 1982, 1937]
+// const years = [1990, 1965, 1982, 1937]
 
-//ES5
-var ages5 = years.map(function(el) { 
-  console.log(el) //1990, 1965, 1982, 1937
-  return 2016 - el 
+// //ES5
+// var ages5 = years.map(function(el) { 
+//   console.log(el) //1990, 1965, 1982, 1937
+//   return 2016 - el 
  
- })
- console.log(ages5) //[ 26, 51, 34, 79 ]
+//  })
+//  console.log(ages5) //[ 26, 51, 34, 79 ]
 
- //ES6 - with map i have access to the current index, element and array itself
- // 1st Method - one arguement and one line of code 
- let  ages6 = years.map (el => 2016 - el)
- console.log(ages6) //[ 26, 51, 34, 79 ]
+//  //ES6 - with map i have access to the current index, element and array itself
+//  // 1st Method - one arguement and one line of code 
+//  let  ages6 = years.map (el => 2016 - el)
+//  console.log(ages6) //[ 26, 51, 34, 79 ]
 
- //2nd Method - two arguements, use parenthesis, and one line  
- //since this is all in one line the return is implicit 
- ages6  = years.map((el, index) => `Age element ${index + 1}: ${2016 - el}`)
- console.log(ages6) //  'Age element 1: 26', 'Age element 2: 51', 'Age element 3: 34', 'Age element 4: 79']
+//  //2nd Method - two arguements, use parenthesis, and one line  
+//  //since this is all in one line the return is implicit 
+//  ages6  = years.map((el, index) => `Age element ${index + 1}: ${2016 - el}`)
+//  console.log(ages6) //  'Age element 1: 26', 'Age element 2: 51', 'Age element 3: 34', 'Age element 4: 79']
  
 
- // 3rd Method - two arguements, use parenthesis, and use curly brackets to for mutiple lines of code, and use return 
- ages6 = years.map((el, index)=>{
-   const now = new Date().getFullYear()
-   const age = now - el 
-   return `Age element ${index + 1}: ${age}`
- })
+//  // 3rd Method - two arguements, use parenthesis, and use curly brackets to for mutiple lines of code, and use return 
+//  ages6 = years.map((el, index)=>{
+//    const now = new Date().getFullYear()
+//    const age = now - el 
+//    return `Age element ${index + 1}: ${age}`
+//  })
 
- console.log(ages6) // ['Age element 1: 30','Age element 2: 55','Age element 3: 38','Age element 4: 83']
+//  console.log(ages6) // ['Age element 1: 30','Age element 2: 55','Age element 3: 38','Age element 4: 83']
+
+
+
+
+/////////////////////////////////////////////////////////////ARROW FUNCTIONS[THIS KEYWORD]//////////////////////////////////////////////////
+
+// //ES5
+// var box5 = {
+//   color: 'green',
+//   position: 1,
+//   clickMe: function (){
+//     var self = this // I have to use self, because if I just used this.color inside the callback function it would return a variable in the window,  not in my box5 object
+//     document.querySelector('.green').addEventListener('click', function () {
+//       alert('The color of the box is' + self.color + ' and the position is ' + self.position)
+//       })
+//   }
+// }
+// box5.clickMe() 
+
+
+//ES6 - arrrow functions share the this lexical of its surroundings, which is one level above it 
+const box6 = {
+  color: 'green',
+  position: 1,
+  clickMe: function () {
+    document.querySelector('.green').addEventListener('click', () => {
+      alert(`The color of the box is ${this.color} and the position is ${this.position}`)
+    })
+    }
+}
+
+box6.clickMe()
