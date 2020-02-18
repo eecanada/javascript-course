@@ -86,3 +86,37 @@
 // console.log(n.endsWith('h')) // true, since the last letter of the name is h
 // console.log(n.includes(' ')) // true, since the name does include a space, so this test to catch any letter
 // console.log(firstName.repeat(5)) // johnjohnjohnjohnjohn
+
+
+
+////////////////////////////////////////////////////ARROW FUNCTIONS/////////////////////////////////////////////////////
+
+const years = [1990, 1965, 1982, 1937]
+
+//ES5
+var ages5 = years.map(function(el) { 
+  console.log(el) //1990, 1965, 1982, 1937
+  return 2016 - el 
+ 
+ })
+ console.log(ages5) //[ 26, 51, 34, 79 ]
+
+ //ES6 - with map i have access to the current index, element and array itself
+ // 1st Method - one arguement and one line of code 
+ let  ages6 = years.map (el => 2016 - el)
+ console.log(ages6) //[ 26, 51, 34, 79 ]
+
+ //2nd Method - two arguements, use parenthesis, and one line  
+ //since this is all in one line the return is implicit 
+ ages6  = years.map((el, index) => `Age element ${index + 1}: ${2016 - el}`)
+ console.log(ages6) //  'Age element 1: 26', 'Age element 2: 51', 'Age element 3: 34', 'Age element 4: 79']
+ 
+
+ // 3rd Method - two arguements, use parenthesis, and use curly brackets to for mutiple lines of code, and use return 
+ ages6 = years.map((el, index)=>{
+   const now = new Date().getFullYear()
+   const age = now - el 
+   return `Age element ${index + 1}: ${age}`
+ })
+
+ console.log(ages6) // ['Age element 1: 30','Age element 2: 55','Age element 3: 38','Age element 4: 83']
