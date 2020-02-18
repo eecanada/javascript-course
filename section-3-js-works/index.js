@@ -1,4 +1,4 @@
-/////////////////How Code is Executed/////////////////////////
+////////////////////////////////////////////////////////How Code is Executed/////////////////////////
 
 // Host (browser) where JS is hosted has some sort of JS engine that takes my code and excutes it. So a JS engine is a program that excutes JS code. 
 
@@ -6,7 +6,7 @@
  
 
 
-//////////Execution Context and the Execution Stack///////////
+////////////////////////////////////Execution Context and the Execution Stack/////////////////////////////////////
 
 // all JS codes need an enviroment to run in, and these enviroments are called execution context 
 
@@ -15,7 +15,7 @@
 // Everytime  I call a function it gets it's brand new execution context, there seems to be an excution stack when a function is being called within another function. The function that was called last is going to be the execution context block ontop 
 
 
-/////////////////Hoisting/////////////////////////
+////////////////////////////////////////////////////////Hoisting//////////////////////////////////////
 
 // // Example of Hoisting - wiht function decleration
 // calculateAge(1965) //--> 54
@@ -45,12 +45,12 @@
 // foo()
 
 
-//////////////////Scoping///////////////////////////
+/////////////////////////////////////////////////////////Scoping/////////////////////////////////////////////////////
 
 // Each function creates a scope: which is a space in which the variables are accessable. 
 
 
-////////////////////This///////////////////////////
+///////////////////////////////////////////////////////////This/////////////////////////////////////////////////////
 
 // // console.log(this) //--> window object is default object 
 
