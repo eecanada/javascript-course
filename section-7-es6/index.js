@@ -237,4 +237,48 @@
 
 
 
-///////////////////////////////////////////////////////////DESTRUCTURING//////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////ARRAYS//////////////////////////////////////////////////////////////////
+
+// // nodeslist
+// const boxes = document.querySelectorAll('.box')
+
+// //ES5
+// var boxesArr5 = Array.prototype.slice.call(boxes)
+// boxesArr5.forEach(function(cur){
+//   cur.style.backgroundColor = 'dodgerblue'
+// })
+
+// //ES6 - .from(boxes), is turing my boxes node list into an array, i can use the map method to map through on array  or maybe a for loop?
+// const boxesArr6 = Array.from(boxes)
+// boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerBlue')
+
+// // //ES5
+// // for(var i = 0; i < boxesArr5.length; i++){
+// //   if(boxesArr5[i].className === 'box blue'){
+// //     continue // will skip this iteration and go to the next iteration, while a break will just stop the iteration 
+// //   }
+// //   boxesArr5[i].textContent = 'I change to blue'
+// // }
+
+// //ES6 - how to do a es5 for loop using the for of loop
+// for (const currentElement of boxesArr6) {
+//   if(currentElement.className.includes('blue')){
+//     continue
+//   } else {
+//     currentElement.textContent = 'This is working'
+//   }
+// }
+
+
+//ES5
+var ages = [12,7,8,21,14,11]
+var full = ages.map(function (currentElement) {
+  return currentElement >= 18
+  })
+console.log(full) // [ false, false, false, true, false, false ]
+console.log(full.indexOf(true)) // 3
+console.log(ages[full.indexOf(true)]) // 21 
+
+//ES6 - findIndex, will return the currentElement in which the condition is true 
+console.log(ages.findIndex(currentElement => currentElement >= 18)) //3 
+console.log(ages.find(currentElement => currentElement >= 18)) //21
