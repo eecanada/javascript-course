@@ -101,8 +101,8 @@
 //  })
 //  console.log(ages5) //[ 26, 51, 34, 79 ]
 
-//  //ES6 - with map i have access to the current index, element and array itself
-//  // 1st Method - one arguement and one line of code 
+ //ES6 - with map i have access to the current index, element and array itself
+ // 1st Method - one arguement and one line of code 
 //  let  ages6 = years.map (el => 2016 - el)
 //  console.log(ages6) //[ 26, 51, 34, 79 ]
 
@@ -141,14 +141,43 @@
 
 
 //ES6 - arrrow functions share the this lexical of its surroundings, which is one level above it 
-const box6 = {
-  color: 'green',
-  position: 1,
-  clickMe: function () {
-    document.querySelector('.green').addEventListener('click', () => {
-      alert(`The color of the box is ${this.color} and the position is ${this.position}`)
-    })
-    }
+// const box6 = {
+//   color: 'green',
+//   position: 1,
+//   clickMe: function () {
+//     document.querySelector('.green').addEventListener('click', () => {
+//       alert(`The color of the box is ${this.color} and the position is ${this.position}`)
+//     })
+//     }
+// }
+
+// box6.clickMe()
+
+
+
+// function constructor 
+function Person (name){
+  this.name = name
 }
 
-box6.clickMe()
+// //ES5
+// Person.prototype.myFriends5 = function (friends) {
+//   // var self = this will work if I uncomment this line of code
+//   var arr = friends.map(function (el) { 
+//     return this.name + ' is friends with ' + el
+//    })
+//    console.log(arr) // 'undefined is friends with bob', wo ill not work because this is pointing to global object
+//   }
+
+  var friends = ['bob','jane','mark']
+  // new Person('John').myFriends5(friends)
+
+
+//ES6 this fuctions does not have a this keyword
+Person.prototype.myFriends6 = function (friends) {
+  let arr = friends.map(el => `${this.name} is friends with ${el}`)
+  console.log(arr)
+  }
+
+  // instance of Person objecy 
+  new Person('Eder').myFriends6(friends)
