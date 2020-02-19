@@ -270,15 +270,33 @@
 // }
 
 
-//ES5
-var ages = [12,7,8,21,14,11]
-var full = ages.map(function (currentElement) {
-  return currentElement >= 18
-  })
-console.log(full) // [ false, false, false, true, false, false ]
-console.log(full.indexOf(true)) // 3
-console.log(ages[full.indexOf(true)]) // 21 
+// //ES5
+// var ages = [12,7,8,21,14,11]
+// var full = ages.map(function (currentElement) {
+//   return currentElement >= 18
+//   })
+// console.log(full) // [ false, false, false, true, false, false ]
+// console.log(full.indexOf(true)) // 3
+// console.log(ages[full.indexOf(true)]) // 21 
 
-//ES6 - findIndex, will return the currentElement in which the condition is true 
-console.log(ages.findIndex(currentElement => currentElement >= 18)) //3 
-console.log(ages.find(currentElement => currentElement >= 18)) //21
+// //ES6 - findIndex, will return the currentElement in which the condition is true 
+// console.log(ages.findIndex(currentElement => currentElement >= 18)) //3 
+// console.log(ages.find(currentElement => currentElement >= 18)) //21
+
+
+
+/////////////////////////////////////////////////////////////SPREAD OPERATOR////////////////////////////////////////////////////////////////
+
+
+const addFourAges = ((a,b,c,d) => a + b + c + d)
+console.log(addFourAges(18,30,12,21)) // 81 
+
+//ES5 - apply takes in the array, call the addFourAges function using the elements of the array
+var ages = [18,30,12,21]
+var sum2 = addFourAges.apply(null, ages)
+console.log(sum2) //81
+
+//ES6 - spread operator 
+console.log(addFourAges(...ages)) // 81
+
+
