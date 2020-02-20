@@ -243,7 +243,7 @@
 // const boxes = document.querySelectorAll('.box')
 
 // //ES5
-// var boxesArr5 = Array.prototype.slice.call(boxes)
+// var boxesArr5 = Array.prototype.slice.call(boxes) //turns node list into an array
 // boxesArr5.forEach(function(cur){
 //   cur.style.backgroundColor = 'dodgerblue'
 // })
@@ -287,29 +287,85 @@
 
 /////////////////////////////////////////////////////////////SPREAD OPERATOR////////////////////////////////////////////////////////////////
 
-const addFourAges = ((a,b,c,d) => a + b + c + d)
-console.log(addFourAges(18,30,12,21)) // 81 
+// const addFourAges = ((a,b,c,d) => a + b + c + d)
+// console.log(addFourAges(18,30,12,21)) // 81 
 
-//ES5 - apply takes in the array, call the addFourAges function using the elements of the array
-var ages = [18,30,12,21]
-var sum2 = addFourAges.apply(null, ages)
-console.log(sum2) //81
+// //ES5 - apply takes in the array, call the addFourAges function using the elements of the array
+// var ages = [18,30,12,21]
+// var sum2 = addFourAges.apply(null, ages)
+// console.log(sum2) //81
 
-//ES6 - spread operator 
-console.log(addFourAges(...ages)) // 81
+// //ES6 - spread operator 
+// console.log(addFourAges(...ages)) // 81
 
-// using spread operator on array
-const familySmith = ['John', 'Jane', 'Mark']
-const familyCanada = ['Eder', 'Wendy','Bryan']
-const families = [...familyCanada,...familySmith]
-console.log(families) // [ 'Eder', 'Wendy', 'Bryan', 'John', 'Jane', 'Mark' ]
+// // using spread operator on array
+// const familySmith = ['John', 'Jane', 'Mark']
+// const familyCanada = ['Eder', 'Wendy','Bryan']
+// const families = [...familyCanada,...familySmith]
+// console.log(families) // [ 'Eder', 'Wendy', 'Bryan', 'John', 'Jane', 'Mark' ]
 
 
-// using spread operator on node list
-const h = document.querySelector('h1')
-const boxes = document.querySelectorAll('.box')
-const all = [h,...boxes] // or does it convert here? 
-console.log(all) 
+// // using spread operator on node list
+// const h = document.querySelector('h1')
+// const boxes = document.querySelectorAll('.box')
+// const all = [h,...boxes] // or does it convert here? 
+// console.log(all) 
 
-// converting the node list to an array and looping through that array and changing its style
-all.forEach(currentElement => currentElement.style.color = 'purple')
+// // converting the node list to an array and looping through that array and changing its style
+// all.forEach(currentElement => currentElement.style.color = 'purple')
+
+// going from array to single values 
+
+
+/////////////////////////////////////////////////////////////REST PARAMETERS////////////////////////////////////////////////////////////////
+
+// RANDOM EXAMPLE
+// const hobbies = ['reading','working out', 'traveling','coding']
+// hobbies.forEach(currentElement => console.log(currentElement)) // reading, working, traveling, coding (being looped, NOT in array)
+
+// going from single values to an array, when we call a function with multiple parameters
+
+// function isFullAge() {  
+//   console.log(arguments)
+// }
+
+// isFullAge(13,12,14) // this is an object that I want to turn into an array
+
+
+// // ES5
+// function isFullAge5(){
+//   var argsArr = Array.prototype.slice.call(arguments)  // going from an object to an array 
+//   argsArr.forEach(function (currentElment) { // looping through the array
+//     console.log(2020 - currentElment >= 18)
+//     })
+
+//   };
+
+// isFullAge5(1990,1995,1996) // true,true,true 
+
+
+// //ES6 is it converting the arguements which is an object to an array, then looping each index and running the function
+// const isFullAge6 = ((...years) => {
+//   years.forEach(currentElement => console.log(2020 - currentElement >= 18))
+// })
+
+// isFullAge6(1990,1995,1996) // true, true, true 
+
+
+// //ES5
+// function isFullAge5(limit){
+//   console.log(arguments) // [21,1990,1999,1965]
+//   var argsArr = Array.prototype.slice.call(arguments,1) // will turn the arguements into an array and split the array starting from position one
+//   console.log(argsArr) // [1990,1999,1965]
+//   argsArr.forEach(currentElement => console.log(2020 - currentElement >= limit));
+// }
+
+// isFullAge5(21,1990,1999,1965) // true, true, true 
+
+// //ES6 
+// const isFullAge6 = ((limit, ...years) => {
+//   console.log(limit)
+//   years.forEach(currentElement => console.log(2020 - currentElement >= 30))
+// })
+
+// isFullAge6(21, 1990,1999,1965) // true false true, the function is reading the first arguement and assigning it as the limit, and the rest are the years
