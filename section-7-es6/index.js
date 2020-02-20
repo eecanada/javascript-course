@@ -369,3 +369,36 @@
 // })
 
 // isFullAge6(21, 1990,1999,1965) // true false true, the function is reading the first arguement and assigning it as the limit, and the rest are the years
+
+
+
+/////////////////////////////////////////////////////////////DEFAULT PARAMETERS/////////////////////////////////////////////////////////////
+
+//ES5 - function constructor 
+function SmithPerson(firstName,yearOfBirth,lastName,nationality){
+  lastName === undefined ? lastName = 'Smith' : lastName
+  nationality === undefined ? nationality = 'Mexican' : lastName
+
+  this.firstName = firstName
+  this.yearOfBirth =yearOfBirth
+  this.lastName = lastName
+  this.nationality = nationality
+}
+
+const john = new SmithPerson('john', 1990)
+console.log(john) // object of SmithPerson {}
+
+const emily = new SmithPerson('emily',1983,'Diaz','Spanish')
+console.log(emily)
+
+
+//ES6 
+function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'Mexican'){
+  this.firstName = firstName
+  this.yearOfBirth = yearOfBirth
+  this.lastName = lastName
+  this.nationality = nationality
+}
+
+const mike = new SmithPerson('Mike', 1993)
+console.log(mike)
