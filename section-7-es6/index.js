@@ -237,7 +237,7 @@
 
 
 
-/////////////////////////////////////////////////////////////ARRAYS//////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////ARRAYS//////////////////////////////////////////////////////////////////////
 
 // // nodeslist
 // const boxes = document.querySelectorAll('.box')
@@ -252,13 +252,13 @@
 // const boxesArr6 = Array.from(boxes)
 // boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerBlue')
 
-// // //ES5
-// // for(var i = 0; i < boxesArr5.length; i++){
-// //   if(boxesArr5[i].className === 'box blue'){
-// //     continue // will skip this iteration and go to the next iteration, while a break will just stop the iteration 
-// //   }
-// //   boxesArr5[i].textContent = 'I change to blue'
-// // }
+// //ES5
+// for(var i = 0; i < boxesArr5.length; i++){
+//   if(boxesArr5[i].className === 'box blue'){
+//     continue // will skip this iteration and go to the next iteration, while a break will just stop the iteration 
+//   }
+//   boxesArr5[i].textContent = 'I change to blue'
+// }
 
 // //ES6 - how to do a es5 for loop using the for of loop
 // for (const currentElement of boxesArr6) {
@@ -287,7 +287,6 @@
 
 /////////////////////////////////////////////////////////////SPREAD OPERATOR////////////////////////////////////////////////////////////////
 
-
 const addFourAges = ((a,b,c,d) => a + b + c + d)
 console.log(addFourAges(18,30,12,21)) // 81 
 
@@ -299,4 +298,18 @@ console.log(sum2) //81
 //ES6 - spread operator 
 console.log(addFourAges(...ages)) // 81
 
+// using spread operator on array
+const familySmith = ['John', 'Jane', 'Mark']
+const familyCanada = ['Eder', 'Wendy','Bryan']
+const families = [...familyCanada,...familySmith]
+console.log(families) // [ 'Eder', 'Wendy', 'Bryan', 'John', 'Jane', 'Mark' ]
 
+
+// using spread operator on node list
+const h = document.querySelector('h1')
+const boxes = document.querySelectorAll('.box')
+const all = [h,...boxes] // or does it convert here? 
+console.log(all) 
+
+// converting the node list to an array and looping through that array and changing its style
+all.forEach(currentElement => currentElement.style.color = 'purple')
