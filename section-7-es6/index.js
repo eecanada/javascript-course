@@ -374,31 +374,67 @@
 
 /////////////////////////////////////////////////////////////DEFAULT PARAMETERS/////////////////////////////////////////////////////////////
 
-//ES5 - function constructor 
-function SmithPerson(firstName,yearOfBirth,lastName,nationality){
-  lastName === undefined ? lastName = 'Smith' : lastName
-  nationality === undefined ? nationality = 'Mexican' : lastName
+// //ES5 - function constructor 
+// function SmithPerson(firstName,yearOfBirth,lastName,nationality){
+//   lastName === undefined ? lastName = 'Smith' : lastName
+//   nationality === undefined ? nationality = 'Mexican' : lastName
 
-  this.firstName = firstName
-  this.yearOfBirth =yearOfBirth
-  this.lastName = lastName
-  this.nationality = nationality
+//   this.firstName = firstName
+//   this.yearOfBirth =yearOfBirth
+//   this.lastName = lastName
+//   this.nationality = nationality
+// }
+
+// const john = new SmithPerson('john', 1990)
+// console.log(john) // object of SmithPerson {}
+
+// const emily = new SmithPerson('emily',1983,'Diaz','Spanish')
+// console.log(emily)
+
+
+// //ES6 
+// function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'Mexican'){
+//   this.firstName = firstName
+//   this.yearOfBirth = yearOfBirth
+//   this.lastName = lastName
+//   this.nationality = nationality
+// }
+
+// const mike = new SmithPerson('Mike', 1993)
+// console.log(mike)
+
+
+
+
+////////////////////////////////////////////////////////////////MAP////////////////////////////////////////////////////////////////////////
+
+const question = new Map ()
+question.set('question', 'what is the official name of JavaScript?')
+question.set(1, 'EMCAScript')
+question.set(2, 'ES5')
+question.set(3, 'ES6')
+question.set(4, 'ES2020')
+question.set('correct', 1)
+question.set(true, 'Correct Answer')
+question.set(false, 'Wrong, please try again')
+
+console.log(question.get('question')) // what is the official name of JavaScript?
+// console.log(question.size) // 8
+
+// question.delete(4) // key and value number 4 are deleted from the map object
+// question.clear() // delets all the key and value pairs from the question object
+
+// Maps are itterable, which is something I cannot do with objects, but their key or value are iterable 
+// question.forEach((value,key)=>console.log(`This is ${key}, and is set to ${value}`)) 
+
+// loooping though each key and value using the for of loop and destructuring 
+for(let [key,value] of question.entries()){ 
+  if(typeof(key) === 'number'){
+    console.log(`Answer ${key}: ${value}`)
+  }
 }
 
-const john = new SmithPerson('john', 1990)
-console.log(john) // object of SmithPerson {}
-
-const emily = new SmithPerson('emily',1983,'Diaz','Spanish')
-console.log(emily)
-
-
-//ES6 
-function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'Mexican'){
-  this.firstName = firstName
-  this.yearOfBirth = yearOfBirth
-  this.lastName = lastName
-  this.nationality = nationality
-}
-
-const mike = new SmithPerson('Mike', 1993)
-console.log(mike)
+// converting the response from  a string to a number
+const ans = parseInt(prompt('Write the correct answer'))
+// compare if the response is equal to correct, then console.log true 
+console.log(question.get(ans === question.get('correct')))
