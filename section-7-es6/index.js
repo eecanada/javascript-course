@@ -444,36 +444,109 @@
 ////////////////////////////////////////////////////////////////CLASSES////////////////////////////////////////////////////////////////////
 
 
-//ES5 - function constrcutor, would work with function decleration and expression would work the same
-var Person5 = function (name, yearOfBirth, job) {
+// //ES5 - function constrcutor, would work with function decleration and expression would work the same
+// var Person5 = function (name, yearOfBirth, job) {
+//   this.name = name
+//   this.yearOfBirth = yearOfBirth
+//   this.job = job
+//   }
+
+// // adding function to my function constructor 
+// Person5.prototype.calculateAge = function () {
+//   var age = new Date().getFullYear() - this.yearOfBirth
+//   console.log(age)
+// }
+// var john5 = new Person5('john',1990,'teacher')
+// john5.calculateAge()
+
+
+// //ES6 - class decleration
+// class Person6 {
+//   constructor(name, yearOfBirth,job){
+//     this.name = name 
+//     this.yearOfBirth = yearOfBirth
+//     this.job = job
+//   }
+//   calculateAge(){
+//     let age = new Date().getFullYear() - this.yearOfBirth
+//     console.log(age)
+//   }
+//   static geeting (){
+//     console.log('hi!') // somewhat useless, cannot be called on instances of the class
+//   }
+// }
+// const john6 = new Person6 ('john',1990,'teacher')
+// john6.calculateAge()
+
+
+//////////////////////////////////////////////////////////CLASSES WITH SUBCLASSES///////////////////////////////////////////////////////////
+
+//ES5 - connecting to serpate function constuctors 
+var Person5 = function (name, yearofBirth, job) {
   this.name = name
-  this.yearOfBirth = yearOfBirth
+  this.yearofBirth = yearofBirth
   this.job = job
   }
 
-// adding function to my function constructor 
 Person5.prototype.calculateAge = function () {
-  var age = new Date().getFullYear() - this.yearOfBirth
+  var age = new Date().getFullYear() - this.yearofBirth
   console.log(age)
-}
-var john5 = new Person5('john',1990,'teacher')
-john5.calculateAge()
+  }
+// call is used to call the super class 
+  var Athlete5 = function(name, yearofBirth, job, olympicGames, medals){
+    Person5.call(this, name, yearofBirth,job)
+    this.olympicGames = olympicGames
+    this.medals = medals
+  }
+
+  
+//now the two function constuctors are connected, took alot of work and code
+Athlete5.prototype = Object.create(Person5.prototype)
+
+// after I connect the function constructors, then I can create a method only for the subclass 
+Athlete5.prototype.wonMedal = function () {
+  this.medals++
+  console.log(this.medals)
+  }
 
 
-//ES6 - class decleration
+// Making a brand new object using Athlete5 but that is a subclass of Person5
+var johnAthlete5 = new Athlete5 ('john', 1990, 'swimmer', 3, 10)
+console.log(johnAthlete5) // object of john 
+
+johnAthlete5.calculateAge() //30
+johnAthlete5.wonMedal() // 11
+
+
+
+
+
+//ES6 - how to combine two classes or function constructors with class  
 class Person6 {
-  constructor(name, yearOfBirth,job){
-    this.name = name 
-    this.yearOfBirth = yearOfBirth
+  constructor(name, yearofBirth, job){
+    this.name = name
+    this.yearofBirth = yearofBirth
     this.job = job
   }
   calculateAge(){
-    let age = new Date().getFullYear() - this.yearOfBirth
+    let age = new Date().getFullYear() - this.yearofBirth
     console.log(age)
   }
-  static geeting (){
-    console.log('hi!') // somewhat useless, cannot be called on instances of the class
+}
+
+// subclass Althete6 extends the superclass Person6 
+class Athlete6 extends Person6 {
+  constructor(name, yearofBirth,job,olympicGames,medals){
+    super(name, yearofBirth,job) // calls the super class Person6, 
+    this.olympicGames = olympicGames
+    this.medals = medals
+  }
+  wonMedal() {
+    this.medals++
+    console.log(this.medals)
   }
 }
-const john6 = new Person6 ('john',1990,'teacher')
-john6.calculateAge()
+
+const johnAthlete6 = new Athlete6 ('john', 1990, 'swimmer',3,10)
+johnAthlete6.calculateAge() //30
+johnAthlete6.wonMedal() // 11
