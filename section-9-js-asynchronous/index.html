@@ -137,46 +137,77 @@
       //         })
       //     }
 
-      //     async function getRecipesAW() {
-      //         const IDs = await getIDs
-      //         console.log(IDs)
-      //         const recipe = await getRecipe(IDs[2])
-      //         console.log(recipe)
-      //         const publisher =  await getRelated('Eder')
-      //         console.log(publisher)
+        //   async function getRecipesAW() {
+        //       const IDs = await getIDs
+        //       console.log(IDs)
+        //       const recipe = await getRecipe(IDs[2])
+        //       console.log(recipe)
+        //       const publisher =  await getRelated('Eder')
+        //       console.log(publisher)
 
-      //         // How to return result from async with .then()
-      //         return recipe // AKA   resolve(`${ID}: ${recipe.title}`)
-      //     }
-      //     // the argument result of the .then callback function is the resolved value of recipe, result can be anyname
-      //     // I am using .then to consume the getRecipesAW promise
-      //      getRecipesAW().then(result => {
-      //          console.log(`${result} this is working`)
-      //      })
+        //       // How to return result from async with .then()
+        //       return recipe // AKA   resolve(`${ID}: ${recipe.title}`)
+        //   }
+        //   // the argument result of the .then callback function is the resolved value of recipe, result can be anyname
+        //   // I am using .then to consume the getRecipesAW promise
+        //    getRecipesAW().then(result => {
+        //        console.log(`${result} this is working`)
+        //    })
 
       //////////////////////////////////////////////////////////////FETCH/////////////////////////////////////////////////////////////
 
-      function getWeather(woeid) {
-        fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`) //fetch gets a data and return a promise
-          .then(result => { // result is the data that came back from the fetch promise, it could have been named anything
-            console.log(result) // result is json right now
-            return result.json() // .json turns json to javascript, this json method returns a promise to, so I have to consume it
-          })
-          .then(data => {// this is consuming result.json and now I am calling that js object, data
-            console.log(data)
-            const today = data.consolidated_weather[0]
-            console.log(
-              `Temperatures in ${data.title} stay between ${today.min_temp} and ${today.max_temp} celsius`
-            )
-          })
+    //   function getWeather(woeid) {
+    //     fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`) //fetch gets a data and return a promise
+    //       .then(result => { // result is the data that came back from the fetch promise, it could have been named anything
+    //         console.log(result) // result is json right now
+    //         return result.json() // .json turns json to javascript, this json method returns a promise to, so I have to consume it
+    //       })
+    //       .then(data => {// this is consuming result.json and now I am calling that js object, data
+    //         console.log(data)
+    //         const today = data.consolidated_weather[0]
+    //         console.log(
+    //           `Temperatures in ${data.title} stay between ${today.min_temp} and ${today.max_temp} celsius`
+    //         )
+    //       })
 
-          .catch(error => {
-            // just used to see if there was an error
-            console.log(error)
-          })
-      }
-      getWeather(2487956)
-      getWeather(44418)
+    //       .catch(error => {
+    //         // just used to see if there was an error
+    //         console.log(error)
+    //       })
+    //   }
+    //   getWeather(2487956) // Temperatures in San Francisco stay between 8.995000000000001 and 18.494999999999997 celsius
+    //   getWeather(44418)
+
+ //////////////////////////////////////////////////////////////ASYNC & AWAIT FETCH /////////////////////////////////////////////////////////
+        
+ //async function also ALWAYS returns a promise 
+        async function getWeatherAW(woeid) { 
+            try{ // fetch is returning a promise
+                const result =  await fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
+            
+                // json is returning a promise too
+            const data = await result.json() // this is the result json that was fetched turned into json
+            const today = data.consolidated_weather[0]
+            // console.log(data) //the whole json object turned js object
+            console.log(`Temperatures in ${data.title} stay between ${today.min_temp} and ${today.max_temp} celsius`)
+                return data // what I return will be the resolved value of the promise that getWeatherAW returns
+            } catch(error){
+                console.log(error)
+            } 
+        }
+
+       getWeatherAW(2487956) // Temperatures in San Francisco stay between 8.995000000000001 and 18.494999999999997 celsius
+ 
+       // how to consume a promise from the async function
+       // I am storing the return data which the is promise of my for getWeatherAW function london this way 
+       let dataLondon;
+       getWeatherAW(44418).then(data=> { // london, data can be named anything pop,dot,anything
+        dataLondon = data
+            console.log(dataLondon, 'test')
+           })
+
+
+
     </script>
   </body>
 </html>
