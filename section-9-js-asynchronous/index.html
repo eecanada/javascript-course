@@ -10,6 +10,8 @@
     <h1>Asynchronous JavaScript</h1>
     <script>
 
+    //////////////////////////////////////////////////////////////ASYNCHORNOUS JS///////////////////////////////////////////////////////////
+
       //     const second = () => {
       //         setTimeout(()=> {
       //             console.log('Async hey there')
@@ -21,6 +23,8 @@
       //     console.log('The End')
       //   }
       //   first()
+
+     //////////////////////////////////////////////////////CALLBACK HELL////////////////////////////////////////////////////////////////////
 
     //   function getRecipe() {
     //     setTimeout(() => {
@@ -55,50 +59,108 @@
     //   }
     //   getRecipe()
 
-        const getIDs = new Promise((resolve,reject) => {
-            setTimeout(() => {
-                resolve([523, 883, 432, 974]) //resolve takes in an arguement, which is the result of the promise. This is how I return the result from the promise if it was succesful. I want to return the data in () //AKA IDS
+
+    //////////////////////////////////////////////////////////////PROMISE////////////////////////////////////////////////////////////////
+
+        // const getIDs = new Promise((resolve,reject) => {
+        //     setTimeout(() => {
+        //         resolve([523, 883, 432, 974]) //resolve takes in an arguement, which is the result of the promise. This is how I return the result from the promise if it was succesful. I want to return the data in () //AKA IDS
+        //     }, 1500)
+        // })
+
+        // const getRecipe = recID => { // recID is passed into the function, it think it is irrelevant name
+        //     return new Promise((resolve, reject)=>{
+        //         setTimeout((ID)=>{ //ID === getRecipe(IDs[2]) === 432
+        //             const recipe = {
+        //                 title: 'Fresh Tomato Pasta',
+        //                 publisher: 'Eder'
+        //             }
+        //             resolve(`${ID}:${recipe.title}`) // AKA Recipe
+        //         }, 1500, recID) // this recID is passed into the setTimeout function, which will then become ID
+        //     })
+        // }
+
+        // const getRelated = publisher => { // publisher can be any name
+        //     return new Promise((resolve,reject)=>{
+        //         setTimeout((pub)=>{ // 'Eder'
+        //             const recipe = {
+        //                 title: 'Pizza',
+        //                 publisher: 'Eder'
+        //             }
+        //             resolve(`${pub} ${recipe.title}`) // AKA publisher
+        //         }, 1500, publisher)
+        //     })
+        // }
+
+        // getIDs.then(IDs => { //IDs will be the result of the succesfull promise, [523, 883, 432, 974]
+        //     console.log(IDs) // [523, 883, 432, 974]
+        //     return getRecipe(IDs[2]) // this will return a promise, which is ID , IDs can be any name too
+        // })
+        // .then(recipe => { // recipe will be the results of the succesfull promise getRecipe 
+        //     console.log(recipe) // 432:Fresh Tomato Pasta
+        //     return getRelated('Eder')  // this is pub
+        // })  
+        // .then(publisher =>{ // this is the result of the promise 
+        //     console.log(publisher) // this is resolve()
+        // })
+        // .catch(error => {
+        //     console.log(error)
+        // })
+
+
+    //////////////////////////////////////////////////////////////ASYNC & AWAIT/////////////////////////////////////////////////////////////
+
+    // all these are example of producing promises
+        const getIDs = new Promise((resolve,reject)=>{
+            setTimeout(()=> {
+                resolve([523, 883, 432, 974]) // this is going to get returned if the promise is successful
             }, 1500)
         })
 
-        const getRecipe = recID => { // recID is passed into the function, it think it is irrelevant name
-            return new Promise((resolve, reject)=>{
-                setTimeout((ID)=>{ //ID === getRecipe(IDs[2]) === 432
+        const getRecipe = recID => {
+            return new Promise((resolve,reject)=>{
+                setTimeout((ID)=>{
                     const recipe = {
                         title: 'Fresh Tomato Pasta',
                         publisher: 'Eder'
                     }
-                    resolve(`${ID}:${recipe.title}`) // AKA Recipe
-                }, 1500, recID) // this recID is passed into the setTimeout function, which will then become ID
+                    resolve(`${ID}: ${recipe.title}`)
+                }, 1500, recID)
             })
         }
 
         const getRelated = publisher => {
             return new Promise((resolve,reject)=>{
-                setTimeout((pub)=>{ //
+                setTimeout((pub)=>{
                     const recipe = {
                         title: 'Pizza',
                         publisher: 'Eder'
                     }
-                    resolve(`${pub} ${recipe.title}`) // AKA publisher
+                    resolve(`${pub} ${recipe.title}`)
                 }, 1500, publisher)
             })
         }
 
-        getIDs.then(IDs => { //IDs will be the result of the succesfull promise, [523, 883, 432, 974]
-            console.log(IDs) // [523, 883, 432, 974]
-            return getRecipe(IDs[2]) // this will return a promise, which is ID
-        })
-        .then(recipe => { // recipe will be the results of the succesfull promise getRecipe 
-            console.log(recipe) // 432:Fresh Tomato Pasta
-            return getRelated('Eder')  // this is pub
-        })  
-        .then(publisher =>{ // this is the result of the promise 
-            console.log(publisher) // this is resolve()
-        })
-        .catch(error => {
-            console.log(error)
-        })
+        async function getRecipesAW() {
+            const IDs = await getIDs
+            console.log(IDs)
+            const recipe = await getRecipe(IDs[2])
+            console.log(recipe)
+            const publisher =  await getRelated('Eder') 
+            console.log(publisher)
+
+            // How to return result from async with .then()
+            return recipe // AKA   resolve(`${ID}: ${recipe.title}`)
+        }
+        // the arguement result of the .then callback function is the resolved value of recipe
+         getRecipesAW().then(result => {
+             console.log(`${result} this is working`)
+         }) 
+
+
+
+
+       
 
     </script>
   </body>
