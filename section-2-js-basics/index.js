@@ -225,7 +225,7 @@
  // HOW TO CHECK IF VARIABLE IS DEFINED 
 //  const height 
 //  height = 23
-//  // if height = 0 I would still get undefined, but with the or statment I will not
+//  // if height = 0 I would still get undefined, but with the or statment it will not
 //  if(height || height === 0){
 //    console.log('Variable is defined')
 //  } else {
@@ -315,24 +315,27 @@
 // // Different Datatypes in an array
 // const john = ['john', 'smith', 1990, 'teacher', false]
 // // pushes element to end of array
-// john.push('blue')
-// // instead of pushing to the end of array, push to forward of array
-// john.unshift('Mr')
+// john.push('blue') ['john', 'smith', 1990, 'teacher', false, 'blue]
+
+// // instead of pushing to the end of array, push to the first of the array
+// john.unshift('Mr') //['Mr','john', 'smith', 1990, 'teacher', false, 'blue]
+
 // // deletes the last element in the array
-// john.pop()
+// john.pop() //['Mr','john', 'smith', 1990, 'teacher', false]
+
 // // deletes the first element in the array
-// john.shift()
+// john.shift() //['john', 'smith', 1990, 'teacher', false]
 
 // // Tells me the position element is in the array
 // console.log(john.indexOf(1990)) //--> 2 
 
 // // if the element is not present in the array it will return a -1
 // if(john.indexOf('designer')){
-//   console.log('does not exist')
+//   console.log('does not exist') //-1
 // }
 
 // const isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John has cool designs'
-// console.log(isDesigner)
+// console.log(isDesigner) //'John is NOT a designer' 
 
 
 ///////////////////////////////////////////////Objects and Properties/////////////////////////////////////////////
