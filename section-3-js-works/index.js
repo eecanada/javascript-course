@@ -83,6 +83,7 @@
 //   yearOfBirth: 1994,
 //   } 
 
+// THis is an example of method borrowing, I am borrowing john's method and adding it as a property of my mike object
 //   mike.calculateAge = john.calculateAge
 //   mike.calculateAge()
 
