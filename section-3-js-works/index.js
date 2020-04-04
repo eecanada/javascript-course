@@ -70,7 +70,7 @@
 //     console.log(2019 - this.yearOfBirth)
 
 //     function innerFunction () {
-//       console.log(this, 2) //---> window object
+//       console.log(this, 2) //---> window object, since it it a regular function and not a method of an object, really strange of js
 //       }
 //       innerFunction()
 //   }
@@ -85,6 +85,6 @@
 
 // THis is an example of method borrowing, I am borrowing john's method and adding it as a property of my mike object
 //   mike.calculateAge = john.calculateAge
-//   mike.calculateAge()
+//   mike.calculateAge() //25
 
 
