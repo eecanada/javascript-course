@@ -422,7 +422,7 @@ console.log(question.get('question')) // what is the official name of JavaScript
 // console.log(question.size) // 8
 
 question.delete(4) // key and value number 4 are deleted from the map object
-question.clear() // delets all the key and value pairs from the question object
+question.x() // delets all the key and value pairs from the question object
 
 //Maps are itterable, which is something I cannot do with objects, but their key or value are iterable 
 question.forEach((value,key)=>console.log(`This is ${key}, and is set to ${value}`)) 

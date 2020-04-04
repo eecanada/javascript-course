@@ -58,7 +58,7 @@
 
 // // Examples of Logical Operators 
 // const johnOlder = ageJohn > ageMark 
-// console.log(johnOlder)
+// console.log(johnOlder) 
 
 // // Example of typeof Operator 
 // console.log(typeof(johnOlder)) //--> boolean
@@ -66,7 +66,6 @@
 // console.log(typeof('JS is fun'))//--> String
 // const x
 // console.log(typeof(x))//--> undefined
-
 
 
 
@@ -88,7 +87,7 @@
 
 // // Multiple Assignments 
 // const x,y 
-// x = y = (3 + 5) * 4 - 6
+// x = y = (3 + 5) * 4 - 6 // because of the associativity of the = operator it read right to left x = y
 // console.log(x) //--> 26
 
 // // More Operators 
