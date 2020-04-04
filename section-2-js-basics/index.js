@@ -415,16 +415,18 @@ const arr = ['john', 'mark','eder',1900,'jim']
 for(let i = 0; i < arr.length; i++){
   // looping through this array, but everytime I reach something that is not a string, do not console.log, but keep looping to the next thing
 
-  // if string does not equal string then do continue
+  // if string does not equal string then do continue, like 1990 it will continue and block will not execute
   if(typeof(arr[i]) !== 'string') continue 
-  console.log(arr[i]) 
+  console.log(arr[i]) // ['john', 'mark','eder','jim']
 }
 
-// once I hit something that is not a string then it will break out the loop
+// once I hit something that is not a string then it will break out the loop, and it stops the whole loops 
 // for(let i = 0; i < arr.length; i++){
 //   if(typeof(arr[i]) !== 'string') break
 //   console.log(arr[i]) 
 // }
+
+
 
 // looping backwards
  for(let i = arr.length; i >= 0; i--){ 
