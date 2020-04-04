@@ -87,7 +87,7 @@
 
 // // Multiple Assignments 
 // const x,y 
-// x = y = (3 + 5) * 4 - 6 // because of the associativity of the = operator it read right to left x = y
+// x = y = (3 + 5) * 4 - 6 // because of the associativity of the = operator it reads right to left x = y
 // console.log(x) //--> 26
 
 // // More Operators 
@@ -101,9 +101,11 @@
 // x /= 2
 
 // x = x + 1 
+// x += 1
 // x ++
 
 // x = x -1
+// x -= 1
 // x --
 
 
