@@ -29,8 +29,13 @@ Person.prototype.calculateAge = function () {
   console.log(2020 - this.yearOfBirth, 'this is my age')
   }
 
-// // This is another example of inheritance using prototype. I am now using it to add the same property and value on all of my instances 
+// // This is another example of inheritance using prototype. I am now using it to add the same property and value on all of my instances, 
 Person.prototype.lastName = 'Smith'
+
+//if I wanted each instance to have their on last name I would write it like this 
+Person.prototype.lastName = this.lastName
+tim.lastName = 'Hank'
+
 
 // I am making a new object from my Person function constructor and this is call instantiation because tim is an instance of the Person constructor 
 const tim = new Person ('Tim', 1990, 'teacher', 'John')
