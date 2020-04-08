@@ -2,7 +2,7 @@
 
 // Person object --> making other people using the person objects(constructor) is called INSTANCES and then using athletes to use the person object is called INHERITANCE
 
-// all js objects have a prototype property which makes inheritance possible  
+// all js objects have a prototype property which makes inheritance possible
 
 // everything but the basic datatype in javascript are objects
 
@@ -15,7 +15,7 @@ const eder = {
   job: 'software developer'
 }
 
-// function constructor must start with capital letter
+// function constructor must start with capital letter, the parameters of the constructor are the properties I want my object instances to have.
 const Person = function (name, yearOfBirth, job){
   this.name = name
   this.yearOfBirth = yearOfBirth
