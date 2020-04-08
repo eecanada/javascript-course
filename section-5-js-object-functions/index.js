@@ -63,6 +63,7 @@ toyota.loveCar()
 // new methods to check my new instances  if they have a certain property in the object or to see what object are they being an instance of  
 console.log(toyota.hasOwnProperty('brand')) // true
 console.log(toyota instanceof Car) // true 
+console.info(toyota) // will let me see all of it properties and methods
 
 
 ////////////////////////////////OBJECT.CREATE///////////////////////////////////////////////////////////////////////////
