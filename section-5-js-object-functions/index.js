@@ -15,7 +15,7 @@ const eder = {
   job: 'software developer'
 }
 
-// function constructor must start with capital letter, the parameters of the constructor are the properties I want my object instances to have.
+// FUNCTION CONSTRUCTOR must start with capital letter, the parameters of the constructor are the properties I want my object instances to have.
 const Person = function (name, yearOfBirth, job){
   this.name = name
   this.yearOfBirth = yearOfBirth
@@ -90,7 +90,7 @@ const jane = Object.create(personProto,{
 })
 
 //////////////////////////////////////////////PRIMITIVES VS OBJECTS/////////////////////////////////////////////////////
-// Primitive
+// Primitive -  variables containing primitives actually hold the data inside the variable itself 
 var a = 23
 var b = a
 a = 46
@@ -98,7 +98,7 @@ a = 46
 
 
 
-// Objects
+// Objects - so global scope variable hold their own value and that data is read from top to bottom like css, but objects if you mutate the data anywhere it will affect any objects using that objects info. obj2 = obj1 point to the exact spot of memory, obj2 is not a copy of obj1
 var obj1 = {
   name: 'eder',
   age: 24
@@ -109,7 +109,7 @@ obj1.age = 30
 
 // console.log(obj1,obj2)
 
-// Functions
+// Functions - variables associated with objects do not actually contain the object, the contain a reference to the place in memory where the object is stored
 var age = 27
 var obj = {
   name: 'mike',
@@ -122,7 +122,7 @@ function change (a,b){
 }
 
 change(age, obj)
-console.log(age, obj.city) //---> 27, 
+console.log(age, obj.city) //---> 27, SF
 
 
 /////////////////////////////////////////////PASSING FUNCTIONS AS ARGUEMENTS////////////////////////////////////////////
