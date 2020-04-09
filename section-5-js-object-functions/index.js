@@ -254,7 +254,7 @@ game()
   console.log(score >= 5)
 }) ();
 
-// Here I am using the same IIFE and I can even pass a parameter through it
+// Here I am using the same IIFE and I can even pass a parameter through it, the IIFE can only be called once since it is not assigned to a variable. 
 (function(goodLuck){
   const score = Math.random() * 10
   console.log(score >= 5 - goodLuck)
