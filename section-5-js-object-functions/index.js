@@ -240,6 +240,7 @@ console.log(expensiveCar)
 
 /////////////////////////////////////////////Immediately Invoked Function Expressions///////////////////////////////////
 
+// the problem with this is that if I want to hide the variable from the outside scope, so create a private variable, why should I write a whole function decleration and invoke it 
 function game(){
   const score = Math.random() * 10
   console.log(score >= 5)
