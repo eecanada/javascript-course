@@ -22,7 +22,7 @@ function driverLicence5(passedTest){
     console.log(firstName + ' born in ' + yearOfBirth + ' is now officially allowed to drive a car ')
   }
 }
-driverLicence5(true) // worked because of the function scope
+driverLicence5(true) // worked because of the function scope, var is functioned scope so the variables do not need to be within the same block, but does need to be in the same function
 
 //ES6
 function driverLicence6(passedTest){
@@ -30,11 +30,10 @@ function driverLicence6(passedTest){
     let firstName = 'John'
     const yearOfBirth = 1990
   }
-  console.log(`${firstName} born in ${yearOfBirth} is now officially allowed to drive a car`) // does not worked because of the block function
+  console.log(`${firstName} born in ${yearOfBirth} is now officially allowed to drive a car`) // does not worked because of the block function, the variables are outside of the block 
 }
 
-
-let i = 30
+let i = 30 
 
 for(let i = 0; i < 5; i++){
   console.log(i) // '0,1,2,3,4
