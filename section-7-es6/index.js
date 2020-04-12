@@ -251,7 +251,7 @@ boxesArr5.forEach(function(cur){
 })
 
 //ES6 - .from(boxes), is turning my boxes node list into an array, i can use the map method to map through on array  or maybe a for loop?
-const boxesArr6 = Array.from(boxes)
+const boxesArr6 = Array.from(boxes) - // this returns the array
 boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerBlue')
 
 //ES5
@@ -298,17 +298,17 @@ var ages = [18,30,12,21]
 var sum2 = addFourAges.apply(null, ages)
 console.log(sum2) //81
 
-//ES6 - spread operator 
+//ES6 - spread operator, passing the array into the function 
 console.log(addFourAges(...ages)) // 81
 
-// using spread operator on array
+// using spread operator on array in order to combine two seperate arrays
 const familySmith = ['John', 'Jane', 'Mark']
 const familyCanada = ['Eder', 'Wendy','Bryan']
 const families = [...familyCanada,...familySmith]
 console.log(families) // [ 'Eder', 'Wendy', 'Bryan', 'John', 'Jane', 'Mark' ]
 
 
-// using spread operator on node list
+// using spread operator on node list, since document returns a node list 
 const h = document.querySelector('h1')
 const boxes = document.querySelectorAll('.box')
 const all = [h,...boxes] // or does it convert here? 
