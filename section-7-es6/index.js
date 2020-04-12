@@ -400,7 +400,7 @@ const emily = new SmithPerson('emily',1983,'Diaz','Spanish')
 console.log(emily)
 
 
-//ES6 
+//ES6 - adding default paramerters to a function constructor using ES6, if I do add arguements to my instance than it will take them otherwise it will take the default parameters
 function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'Mexican'){
   this.firstName = firstName
   this.yearOfBirth = yearOfBirth
@@ -411,7 +411,8 @@ function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = '
 const mike = new SmithPerson('Mike', 1993)
 console.log(mike)
 
-
+const mike = new SmithPerson('Mike', 1993, 'Tam', 'Asian')
+console.log(mike)
 
 
 ////////////////////////////////////////////////////////////////MAP////////////////////////////////////////////////////////////////////////
