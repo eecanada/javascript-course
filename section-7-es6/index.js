@@ -290,6 +290,10 @@ console.log(ages.find(currentElement => currentElement >= 18)) //21
 
 /////////////////////////////////////////////////////////////SPREAD OPERATOR////////////////////////////////////////////////////////////////
 
+
+// SPREAD OPERATOR = going from array to single values, it is used when I am invoking the function and want to pass an array as an arguement EXAMPLE calcAge(...)
+
+
 const addFourAges = ((a,b,c,d) => a + b + c + d)
 console.log(addFourAges(18,30,12,21)) // 81 
 
@@ -317,16 +321,17 @@ console.log(all)
 // converting the node list to an array and looping through that array and changing its style
 all.forEach(currentElement => currentElement.style.color = 'purple')
 
-//going from array to single values 
-
 
 /////////////////////////////////////////////////////////////REST PARAMETERS////////////////////////////////////////////////////////////////
+
+
+// REST PARAMETERS = going from single values to an array, this is used to pass multiple single values as parameters in a function decleration EXAMPLE function calcAge(...)
+
 
 //RANDOM EXAMPLE
 const hobbies = ['reading','working out', 'traveling','coding']
 hobbies.forEach(currentElement => console.log(currentElement)) // reading, working, traveling, coding (being looped, NOT in array)
 
-//going from single values to an array, when we call a function with multiple parameters
 
 function isFullAge() {  
   console.log(arguments)
