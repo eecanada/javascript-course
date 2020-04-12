@@ -126,6 +126,18 @@ var ages5 = years.map(function(el) {
 ///////////////////////////////////////////////////////////ARROW FUNCTIONS[THIS KEYWORD]//////////////////////////////////////////////////
 
 //ES5
+var box5 = {
+  color: 'green',
+  position: 1,
+  clickMe: function(){
+    var self = this
+    document.querySelector('.green').addEventListener('click', function(){
+      var str = 'This is box number' + self.position + ' and it is' + self.color
+      alert(str)
+    })
+  }
+}
+box5.clickMe();
  
 
 
@@ -182,7 +194,7 @@ var john = ['John', 26]
 var name = john[0]
 var age = john[1]
 
-//ES6 - destructuring for array use brackets 
+//ES6 - destructuring for array use brackets ], it let's me extract data from object or arrays
 const [name, age] = ['Eder', 26 ]
 console.log(name) // eder
 console.log(age) // 26
@@ -238,7 +250,7 @@ boxesArr5.forEach(function(cur){
   cur.style.backgroundColor = 'dodgerblue'
 })
 
-//ES6 - .from(boxes), is turing my boxes node list into an array, i can use the map method to map through on array  or maybe a for loop?
+//ES6 - .from(boxes), is turning my boxes node list into an array, i can use the map method to map through on array  or maybe a for loop?
 const boxesArr6 = Array.from(boxes)
 boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerBlue')
 
@@ -270,6 +282,7 @@ console.log(full.indexOf(true)) // 3
 console.log(ages[full.indexOf(true)]) // 21 
 
 //ES6 - findIndex, will return the currentElement in which the condition is true 
+// .findIndex has access to current element. current index, and the entire array
 console.log(ages.findIndex(currentElement => currentElement >= 18)) //3 
 console.log(ages.find(currentElement => currentElement >= 18)) //21
 
