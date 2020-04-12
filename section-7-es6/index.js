@@ -54,7 +54,7 @@ console.log(i) // 30
   var c = 3 
 }
 console.log(a + b) // error since values are not accessible from outside the block
-console.log(c) // 3 variables with the var keyword, it does not matter if there are inside or outaide the block they will console log because they are function scope and not blocked scope
+console.log(c) // 3 variables with the var keyword, it does not matter if there are inside or outside the block they will console log because they are function scope and not blocked scope
 
 //ES5 - a making a variable that is only accesible from the block 
 (function(){
@@ -79,7 +79,7 @@ console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + year
 //ES6 - template literal 
 console.log( `This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today he is ${calcAge(yearOfBirth)}`)
 
-
+// a variety of string methodsto check if the string starts, end, or includes a certain character
 const n = `${firstName} ${lastName}`
 console.log(n.startsWith('j')) //true, since the first letter of the name is j
 console.log(n.endsWith('h')) // true, since the last letter of the name is h
@@ -126,17 +126,7 @@ var ages5 = years.map(function(el) {
 ///////////////////////////////////////////////////////////ARROW FUNCTIONS[THIS KEYWORD]//////////////////////////////////////////////////
 
 //ES5
-var box5 = {
-  color: 'green',
-  position: 1,
-  clickMe: function (){
-    var self = this // I have to use self, because if I just used this.color inside the callback function it would return a variable in the window,  not in my box5 object
-    document.querySelector('.green').addEventListener('click', function () {
-      alert('The color of the box is' + self.color + ' and the position is ' + self.position)
-      })
-  }
-}
-box5.clickMe() 
+ 
 
 
 //ES6 - arrrow functions share the this lexical of its surroundings, which is one level above it 
@@ -144,6 +134,7 @@ const box6 = {
   color: 'green',
   position: 1,
   clickMe: function () {
+    // for arrow functions if I have more than one parameters, or no parameters than I have to use parenthesis.
     document.querySelector('.green').addEventListener('click', () => {
       alert(`The color of the box is ${this.color} and the position is ${this.position}`)
     })
