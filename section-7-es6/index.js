@@ -415,9 +415,11 @@ const mike = new SmithPerson('Mike', 1993, 'Tam', 'Asian')
 console.log(mike)
 
 
-////////////////////////////////////////////////////////////////MAP////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////MAP///////////////////////////////////////////////////////////////////////
 
+//creating an empty map
 const question = new Map ()
+// setting the key and values of the map
 question.set('question', 'what is the official name of JavaScript?')
 question.set(1, 'EMCAScript')
 question.set(2, 'ES5')
@@ -427,16 +429,21 @@ question.set('correct', 1)
 question.set(true, 'Correct Answer')
 question.set(false, 'Wrong, please try again')
 
+//this .get retrieves value data from the map
 console.log(question.get('question')) // what is the official name of JavaScript?
+
+// this .size method on maps lets me know the number of keys in the map 
 // console.log(question.size) // 8
 
 question.delete(4) // key and value number 4 are deleted from the map object
-question.x() // delets all the key and value pairs from the question object
+question.clear() // deletes all the key and value pairs from the question object, and leaves the map empty
 
 //Maps are itterable, which is something I cannot do with objects, but their key or value are iterable 
-question.forEach((value,key)=>console.log(`This is ${key}, and is set to ${value}`)) 
+question.forEach((value, key) => {
+  console.log(`This is the ${key}, and is set to ${value}`)
+})
 
-// loooping though each key and value using the for of loop and destructuring 
+// loooping though each key and value using the for of loop and destructuring, .entries it returns all entries of my questions map
 for(let [key,value] of question.entries()){ 
   if(typeof(key) === 'number'){
     console.log(`Answer ${key}: ${value}`)
@@ -446,7 +453,7 @@ for(let [key,value] of question.entries()){
 // converting the response from  a string to a number
 const ans = parseInt(prompt('Write the correct answer'))
 // compare if the response is equal to correct, then console.log true 
-console.log(question.get(ans === question.get('correct')))
+console.log(question.get(ans === question.get('correct'))) // it is going to either be true or false 
 
 
 
