@@ -467,7 +467,7 @@ var Person5 = function (name, yearOfBirth, job) {
   this.job = job
   }
 
-// adding function to my function constructor 
+// adding function to my function constructor using prototype
 Person5.prototype.calculateAge = function () {
   var age = new Date().getFullYear() - this.yearOfBirth
   console.log(age)
@@ -476,8 +476,9 @@ var john5 = new Person5('john',1990,'teacher')
 john5.calculateAge()
 
 
-//ES6 - class decleration
+//ES6 - class decleration, the new ES6 way of writing a function constructor object
 class Person6 {
+  // the constuctor is where I write the properties that I want my object to have
   constructor(name, yearOfBirth,job){
     this.name = name 
     this.yearOfBirth = yearOfBirth
@@ -488,7 +489,7 @@ class Person6 {
     console.log(age)
   }
   static geeting (){
-    console.log('hi!') // somewhat useless, cannot be called on instances of the class
+    console.log('hi!') // STATIC used to add method only to original class. somewhat useless, cannot be called on instances of the class
   }
 }
 const john6 = new Person6 ('john',1990,'teacher')
