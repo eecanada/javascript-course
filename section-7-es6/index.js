@@ -498,7 +498,7 @@ john6.calculateAge()
 
 //////////////////////////////////////////////////////////CLASSES WITH SUBCLASSES///////////////////////////////////////////////////////////
 
-//ES5 - connecting to serpate function constuctors 
+//ES5 - connecting to serpate function constuctors, this is the super class
 var Person5 = function (name, yearofBirth, job) {
   this.name = name
   this.yearofBirth = yearofBirth
@@ -509,7 +509,7 @@ Person5.prototype.calculateAge = function () {
   var age = new Date().getFullYear() - this.yearofBirth
   console.log(age)
   }
-// call is used to call the super class 
+// call is used to call the super class, and Athelete5 is the subclass
   var Athlete5 = function(name, yearofBirth, job, olympicGames, medals){
     Person5.call(this, name, yearofBirth,job)
     this.olympicGames = olympicGames
@@ -525,7 +525,6 @@ Athlete5.prototype.wonMedal = function () {
   this.medals++
   console.log(this.medals)
   }
-
 
 // Making a brand new object using Athlete5 but that is a subclass of Person5
 var johnAthlete5 = new Athlete5 ('john', 1990, 'swimmer', 3, 10)
@@ -553,8 +552,8 @@ class Person6 {
 
 // subclass Althete6 extends the superclass Person6 
 class Athlete6 extends Person6 {
-  constructor(name, yearofBirth,job,olympicGames,medals){
-    super(name, yearofBirth,job) // calls the super class Person6, 
+  constructor(name, yearofBirth,job,olympicGames,medals){ // constructor hold the properties I want my class to have
+    super(name, yearofBirth,job) // calls the super class Person6, pass the original class parameters in here 
     this.olympicGames = olympicGames
     this.medals = medals
   }
