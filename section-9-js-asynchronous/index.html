@@ -57,45 +57,55 @@
         }
         getRecipe()
 
-      //////////////////////////////////////////////////////////////PROMISE////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////PROMISE///////////////////////////////////////////////////////////////
 
+      // a promise is an object that keeop track about whethere a certain event has happened or not. and it determines what happens after the event has happened. Before the event has happened the promise is pending, then after the event has happened the promise is settled/resolved, if the promise is successful then the promise is considered fulfilled, but if there was an error the promise is rejected
+
+       // we can either produce or consume a promise. When you produce a promise, you create a promise and send a result using that promise. We you consume it , we can use callback function for fulfillment and for rejection of the promise.
+
+
+
+
+
+      // resolve and reject are callback functions 
       const getIDs = new Promise((resolve,reject) => {
-          setTimeout(() => {
-              resolve([523, 883, 432, 974]) //resolve takes in an arguement, which is the result of the promise. This is how I return the result from the promise if it was succesful. I want to return the data in () //AKA IDS
+          setTimeout(() => { //after the timer finish, the promise is successful so it will return the resolve
+              resolve([523, 883, 432, 974]) //resolve takes in an arguement, which is the result of the promise. This is how I return the result from the promise if it was successful. I want to return the data in () //AKA IDS
           }, 1500)
       })
 
-      const getRecipe = recID => { // recID is passed into the function, it think it is irrelevant name
+      const getRecipe = recID => { // recID is passed into the function, the name could be anything //1.
           return new Promise((resolve, reject)=>{
-              setTimeout((ID)=>{ //ID === getRecipe(IDs[2]) === 432
+              setTimeout((ID)=>{ //ID === getRecipe(IDs[2]) === 432 //3. ID === recID with different name but could also be called recID
                   const recipe = {
                       title: 'Fresh Tomato Pasta',
                       publisher: 'Eder'
                   }
-                  resolve(`${ID}:${recipe.title}`) // AKA Recipe
-              }, 1500, recID) // this recID is passed into the setTimeout function, which will then become ID
+                  resolve(`${ID}:${recipe.title}`) // AKA Recipe // resolve is what is going to be result when the promise is fufilled
+              }, 1500, recID) // this recID is passed into the setTimeout function, which will then become ID //2.
           })
       }
 
-      const getRelated = publisher => { // publisher can be any name
+      const getRelated = publisher => { // publisher can be any name == getRelated('Eder') 
           return new Promise((resolve,reject)=>{
-              setTimeout((pub)=>{ // 'Eder'
+              setTimeout((pub)=>{ // == Eder' == getRelated('Eder')  === publisher
                   const recipe = {
                       title: 'Pizza',
                       publisher: 'Eder'
                   }
-                  resolve(`${pub} ${recipe.title}`) // AKA publisher
+                  resolve(`${pub} ${recipe.title}`) 
               }, 1500, publisher)
           })
       }
 
-      getIDs.then(IDs => { //IDs will be the result of the succesfull promise, [523, 883, 432, 974]
+       // then and catch are two methods I can use on all promise objects to consume a promise. Success = .then, rejection = .catch
+      getIDs.then(IDs => { // .then takes a callback function if the promise is fufilled. The parameter IDs is the result of whatever is in resolve()
           console.log(IDs) // [523, 883, 432, 974]
-          return getRecipe(IDs[2]) // this will return a promise, which is ID , IDs can be any name too
+          return getRecipe(IDs[2]) // this will return a promise, which is ID , IDs can be any name too === recID
       })
-      .then(recipe => { // recipe will be the results of the succesfull promise getRecipe
+      .then(recipe => { // recipe will be the results of the succesfull promise getRecipe, can be named any variable name
           console.log(recipe) // 432:Fresh Tomato Pasta
-          return getRelated('Eder')  // this is pub
+          return getRelated('Eder')  // this is pub --> this is the value that is going to go into my getRelated parameter 
       })
       .then(publisher =>{ // this is the result of the promise
           console.log(publisher) // this is resolve()
