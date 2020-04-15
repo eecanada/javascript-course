@@ -150,10 +150,13 @@
               })
           }
 
+          //async function also ALWAYS returns a promise, and I can only use await inside of an asycn function
+          // async and await is used to consume promises. this function is an asynchronous function, keep running in the background
+
           async function getRecipesAW() {
-              const IDs = await getIDs
+              const IDs = await getIDs // IDs is equal to whatever is inside resolve() of my getIDs function
               console.log(IDs)
-              const recipe = await getRecipe(IDs[2])
+              const recipe = await getRecipe(IDs[2]) // this is how I pass a parameter into my new asynchronous function
               console.log(recipe)
               const publisher =  await getRelated('Eder')
               console.log(publisher)
@@ -161,9 +164,10 @@
               // How to return result from async with .then()
               return recipe // AKA   resolve(`${ID}: ${recipe.title}`)
           }
-          // the argument result of the .then callback function is the resolved value of recipe, result can be anyname
+          // the parameter result of the .then callback function is the resolved value of recipe, result can be anyname
           // I am using .then to consume the getRecipesAW promise
-           getRecipesAW().then(result => {
+           getRecipesAW()
+           .then(result => {
                console.log(`${result} this is working`)
            })
 
@@ -193,7 +197,6 @@
 
  //////////////////////////////////////////////////////////////ASYNC & AWAIT FETCH /////////////////////////////////////////////////////////
         
- //async function also ALWAYS returns a promise 
         async function getWeatherAW(woeid) { 
             try{ // fetch is returning a promise
                 const result =  await fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
