@@ -185,17 +185,23 @@
   
    //////////////////////////////////////////////////////////////FETCH/////////////////////////////////////////////////////////////
 
+//json is textbased and json is a single string and not really an entire object. it is a string we get from the server and need to turn into a javascript engine.
+
+//Origin header error is caused when I make an AJAX request to a domain different than mine. I use CORS to fix this, it allows me to make request to a different domain
+
       function getWeather(woeid) {
-        fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`) //fetch gets a data and return a promise
-          .then(result => { // result is the data that came back from the fetch promise, it could have been named anything
-            console.log(result) // result is json right now
-            return result.json() // .json turns json to javascript, this json method returns a promise to, so I have to consume it
+        fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`) //fetch is firing off a request. The fetch api gets  data and return a promise
+                  
+          //consuming that promise and naming the results of my fetch call resultAPI, I get back json datat       
+          .then(resultAPI => { // resultAPI is the data that came back from the fetch promise, it could have been named anything
+            console.log(resultAPI) // json --> 'readable stream'
+            return resultAPI.json() // resultAPI is did not come back in JS form but in json 'readable stream' so using --> .json turns json to javascript, this json method also returns a promise to, so I have to consume it as well 
           })
-          .then(data => {// this is consuming result.json and now I am calling that js object, data
-            console.log(data)
-            const today = data.consolidated_weather[0]
+          .then(jsData => {// this is consuming resultAPI.json and now I am calling that newly turn json string to js object --> JSdata
+            console.log(jsData) // --> js object 
+            const today = jsData.consolidated_weather[0]
             console.log(
-              `Temperatures in ${data.title} stay between ${today.min_temp} and ${today.max_temp} celsius`
+              `Temperatures in ${jsData.title} stay between ${today.min_temp} and ${today.max_temp} celsius`
             )
           })
 
