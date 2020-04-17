@@ -105,6 +105,11 @@ var ages5 = years.map(function(el) {
  let  ages6 = years.map (el => 2016 - el)
  console.log(ages6) //[ 26, 51, 34, 79 ]
 
+// same as above  
+ let age6 = years.map ((el)=>{
+   console.log(el)
+ })
+
  //2nd Method - two arguements, use parenthesis, and one line  
  //since this is all in one line the return is implicit 
  ages6  = years.map((el, index) => `Age element ${index + 1}: ${2016 - el}`)
