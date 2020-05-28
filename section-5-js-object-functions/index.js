@@ -268,6 +268,7 @@ game()
 
 function retirement(ageOfRetirement){
   const sentence = 'years left of retirement.'
+  
   return function(birthYear){
     const age = 2020 - birthYear
     console.log(`${ageOfRetirement}` - `${age}` + ` ${sentence}`)
