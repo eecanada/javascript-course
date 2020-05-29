@@ -1,5 +1,8 @@
-let arr = [1,2,3,4,5]
-
-const loop = arr.map(el => 2016 - el)
-
-console.log(loop(...arr))
+function greaterThan(n) {
+  console.log(n)
+  
+  return m => m > n;
+  console.log(m)
+  }
+  let greaterThan10 = greaterThan(10);
+  console.log(greaterThan10(11));
