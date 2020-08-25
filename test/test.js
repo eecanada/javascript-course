@@ -36,5 +36,10 @@ const obj = {
   lastName: 'can'
 }
 
+//keys have to be the same name
 const {firstName, lastName} = obj
 console.log(firstName)
+ 
+// i can rename keys but have to do :
+const {firstName: myName, lastName:myAge} = obj
+console.log(myName)
