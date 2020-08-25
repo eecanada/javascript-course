@@ -80,3 +80,17 @@ Person5.prototype.calcAge = function () {
   var eder5 = new Person5('eder',1994,'developer')
 
 //es6 
+class Person6 {
+  constructor(name, yearOfBirth, job){
+    this.name = name;
+    this.yearOfBirth = yearOfBirth
+    this.job = job
+  }
+  calcAge(){
+    let age = new Date().getFullYear() - this.yearOfBirth
+    console.log(age)
+  }
+}
+
+let eder6 = new Person6('eder', 1994, 'software developer')
+eder6.calcAge()
