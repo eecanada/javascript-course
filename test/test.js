@@ -24,22 +24,59 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-// let eder = ['eder', 25]
+// // let eder = ['eder', 25]
 
-let [name, age] = ['eder', 25]
+// let [name, age] = ['eder', 25]
 
-console.log(age)
+// console.log(age)
 
 
-const obj = {
-  firstName: 'eder',
-  lastName: 'can'
+// const obj = {
+//   firstName: 'eder',
+//   lastName: 'can'
+// }
+
+// //keys have to be the same name
+// const {firstName, lastName} = obj
+// console.log(firstName)
+ 
+// // i can rename keys but have to do :
+// const {firstName: myName, lastName:myAge} = obj
+// console.log(myName)
+
+
+// function calcAgeRetirement(year){
+//   const age = new Date().getFullYear() - year
+//   return[age, 65 -age]
+
+// }
+
+// const [age2, retirement] = calcAgeRetirement(1990)
+// console.log(age)
+// console.log(retirement)
+
+
+// let arr = [1,2,3,4,5]
+
+// arr2 = arr.filter(el => el > 1 && el< 3)
+// console.log(arr2)
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+// es5 
+var Person5 = function (name, yearOfBirth, job){
+  this.name = name
+  this.yearOfBirth = yearOfBirth
+  this.job = job
 }
 
-//keys have to be the same name
-const {firstName, lastName} = obj
-console.log(firstName)
- 
-// i can rename keys but have to do :
-const {firstName: myName, lastName:myAge} = obj
-console.log(myName)
+Person5.prototype.calcAge = function () {
+  var age = new Date().getFullYear() - this.yearOfBirth
+  console.log(age)
+  }
+
+  var eder5 = new Person5('eder',1994,'developer')
+
+//es6 
