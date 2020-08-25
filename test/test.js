@@ -24,8 +24,17 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-let eder = ['eder', 25]
+// let eder = ['eder', 25]
 
-let [name, age] = eder
+let [name, age] = ['eder', 25]
 
-console.log(name)
+console.log(age)
+
+
+const obj = {
+  firstName: 'eder',
+  lastName: 'can'
+}
+
+const {firstName, lastName} = obj
+console.log(firstName)
