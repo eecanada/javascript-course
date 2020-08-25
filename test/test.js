@@ -37,4 +37,19 @@ var box5 = {
   }
 }
 
-box5.clickMe()
+// box5.clickMe()
+
+const box6 = {
+  color:'green',
+  position: 1,
+  clickMe (){
+    // the arrow function shares its lexical this keyword of its surroundings
+    document.querySelector('.green').addEventListener('click', ()=>{
+      let str = `this is box number ${this.position} and it is ${this.color}`
+      alert(str)
+    })
+
+  }
+}
+
+box6.clickMe()
