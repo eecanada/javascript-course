@@ -24,32 +24,8 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
+let eder = ['eder', 25]
 
-var box5 = {
-  color: 'green',
-  position: 1,
-  clickMe: function(){
-    var that = this
-    document.querySelector('.green').addEventListener('click', function () { 
-      var str = 'this box number is ' + that.position + ' and it is ' + that.color
-      alert(str)
-     })
-  }
-}
+let [name, age] = eder
 
-// box5.clickMe()
-
-const box6 = {
-  color:'green',
-  position: 1,
-  clickMe (){
-    // the arrow function shares its lexical this keyword of its surroundings
-    document.querySelector('.green').addEventListener('click', ()=>{
-      let str = `this is box number ${this.position} and it is ${this.color}`
-      alert(str)
-    })
-
-  }
-}
-
-box6.clickMe()
+console.log(name)
