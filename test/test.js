@@ -24,14 +24,11 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-let years = [1990, 1994, 2018, 2021]
+let years = [1990,2019,2075,2030]
 
+let age = years.map((el, index)=> {
+  return `${index + 1}:${2020 -el}`
 
-let ages = years.map(el => 2020 - el)
-console.log(ages)
+})
 
-ages = years.map((el, index)=> 
-  `${index + 1} ${2020- el}`
-)
-
-console.log(ages)
+console.log(age)
