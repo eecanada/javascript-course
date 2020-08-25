@@ -24,11 +24,17 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-let years = [1990,2019,2075,2030]
 
-let age = years.map((el, index)=> {
-  return `${index + 1}:${2020 -el}`
+var box5 = {
+  color: 'green',
+  position: 1,
+  clickMe: function(){
+    var that = this
+    document.querySelector('.green').addEventListener('click', function () { 
+      var str = 'this box number is ' + that.position + ' and it is ' + that.color
+      alert(str)
+     })
+  }
+}
 
-})
-
-console.log(age)
+box5.clickMe()

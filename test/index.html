@@ -1,267 +1,33 @@
-<h2><span class="title-style">Book</span> Your Next Vacation</h2>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Section 7: Get Ready for the Future: ES6 / ES2015</title>
+        
+        <style>
+            .box {
+                width: 200px;
+                padding: 60px;
+                text-align: center;
+                font-size: 30px;
+                margin-top: 50px;
+            }
+            
+            .green { background-color: green; }
+            .blue { background-color: dodgerblue; }
+            .orange { background-color: orangered; }
+            
+        </style>
+        
+    </head>
 
-<div class="search-section">
-    <!-- TAB START -->
-	<div class="tabs nomargin-top">
-
-	<!-- tabs -->
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab-air" data-toggle="tab">Flights</a></li>
-			<li><a href="#tab-hotels" data-toggle="tab">Hotels</a></li>
-			<li><a href="#tab-cars" data-toggle="tab">Cars</a></li>
-			<li><a href="#tab-vacations" data-toggle="tab">Cruises / Vacations</a></li>
-		</ul>
-
-	<!-- tabs content -->
-	<div class="tab-content">
-
-		<div id="tab-air" class="tab-pane active">
-                        <iframe src="/wp-content/themes/archertravel/widgets/air/index.html" class="frame-air"></iframe>
-		</div>
-                <div id="tab-hotels" class="tab-pane">
-                        <iframe src="/wp-content/themes/archertravel/widgets/hotel/index.html" class="frame-hotels"></iframe>
-		</div>
-
-		<div id="tab-cars" class="tab-pane">
-                        <iframe src="/wp-content/themes/archertravel/widgets/car/index.html" class="frame-cars"></iframe>
-		</div>
- 
-                <div id="tab-vacations" class="tab-pane">
-                  <script src="https://secure.vacationport.net/scripts/searchbox.js"></script>
-                  <script>
-                      var renderSearchBox = {"Title":"Cruises/Vacations","Host":"archertravel.vacationport.net","Alignment":0,"Width":null,"Padding":15,"WidthType":0,"SearchFields":[0,2,3,4],"SpecificSupplier":null,"OpenNewWindow":false,"PassportUrl":true,"CustomerUrl":null,"DestinationFilter":null,"ExclusivesOnly":false,"LimitTravelTypeOptions":false,"TravelTypeOptions":null,"TravelTypes":null,"BorderStyle":0,"BorderColor":null,"IncludeJquery":true,"SecureHostUrl":"https://secure.vacationport.net"};
-                      document.write("<div id='ppo_search'></div>");
-                      viewSearchBox(renderSearchBox);
-                  </script>
-		</div>
-         </div>
- </div>
-<!-- TABS END -->
-
-</div>
-</div>
-<style>
-
-.tab-content iframe {
-	border: none;
-}
-body .search-section {
-        max-width: 871px;
-	padding:0;
-	/*margin-bottom:0;*/
-	height: 582px;
-	margin: 25px;
-	/* 
-	max-width:1000px;
-	margin:0 auto;
-	*/
-}
-body .search-section .tabs {
-	margin:0;
-
-}
-body .tab-content iframe {
-	height:520px;
-}
-@media (max-device-width: 480px)  {
-.search-section .tabs .tab-content {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-body .tab-content iframe {
-    height: initial;
-}
-body .search-section {
-    height: initial;
-}
-body .tab-content iframe.frame-air {
-    height: 820px;
-}
-body .tab-content iframe.frame-hotels {
-    height: 390px;
-}
-body .tab-content iframe.frame-cars {
-    height: 390px;
-}
-}
-
-</style>
-<script>
-
-
-</script>
-<script>// <![CDATA[
-jQuery('.nav-tabs a').click(function(e){  e.preventDefault();  var target = jQuery(this).attr('href');  jQuery('.nav-tabs li').removeClass('active');  jQuery( this ).parent('li').addClass('active'); jQuery('.tab-pane').css('display','none');  jQuery( target ).css('display','block'); });
-// ]]></script>
-<script>
-function AdjustIframeHeightOnLoad() {jQuery('.tab-content iframe').get(0).style.height = jQuery('.tab-content iframe').get(0).contentWindow.document.body.scrollHeight + "px"; jQuery('.tab-content iframe').get(1).style.height = jQuery('.tab-content iframe').get(1).contentWindow.document.body.scrollHeight + "px"; jQuery('.tab-content iframe').get(2).style.height = jQuery('.tab-content iframe').get(2).contentWindow.document.body.scrollHeight + "px"; }
-function AdjustIframeHeight(i) { jQuery('.tab-content iframe').get(0).style.height = parseInt(i) + "px"; }
-
-
-//parent.jQuery('#content-frame').wrap('<div id="iframe-container"></div>')
-//searchInitiated = function(form) {
-	jQuery('.search-section .tabs').css('width', '100%').css('max-width', '100%');
-
-	//form_url = jQuery( form ).attr('action');
-	//form_data = jQuery( form ).serialize();
-	//parent.jQuery('#content-frame').css("width", "100%").css("position", "absolute").css("height", "auto")
-	//jQuery('.tab-content iframe').iframeAutoHeight();
-	jQuery(function() {
-		frame2 = jQuery('<iframe name="content-frame2" id="content-frame2"> </iframe>').insertBefore("#content");
-		jQuery('#secondary').insertAfter("#primary");
-		frame2.css('display', 'none').css('width', '100%');
-		jQuery('#content-frame2').css('border', 'none');
-		// setInterval(function() {
-		// 	jQuery('.tab-content iframe:eq(1)').css('height', jQuery('.tab-content iframe:eq(1)').contents().find('body').css('height'));
-		// 	jQuery('.tab-content iframe:eq(2)').css('height', jQuery('.tab-content iframe:eq(2)').contents().find('body').css('height'));
-		// 	jQuery('.tab-content iframe:eq(3)').css('height', jQuery('.tab-content iframe:eq(3)').contents().find('body').css('height'));
-		// 	console.log(jQuery('.tab-content iframe:eq(2)').contents().find('body').css('height'))
-		// }, 150)
-
-        var refreshIntervalId = setInterval(function() {var multiForm = jQuery('.frame-air').contents().find('#multiCityForm'); multiForm.submit(function(event) { event.preventDefault(); jQuery('.row.loading.ng-hide').removeClass('ng-hide'); parent.parent.searchInitiated(multiForm); }); if (multiForm.css('display') == 'block') clearInterval(refreshIntervalId); }, 100);
-        window.onunload = function() {Location.reload()};
-/* later */
-
-            	
-       
-	});
-
-	// setTimeout(function() {
-	// 	$.ajax({
-	// 	  url: form_url,
-	// 	  type: 'POST',
-	// 	  dataType: 'html',
-	// 	  data: form_data,
-	// 	}).done(function ( data ) {
-	// 	  $('#content-frame').append(data);
-	// 	});
-	// 	//jQuery.post( "test.php", form_data);
-	// }, 3000);
-	
-
-	searchInitiated = function(form) {
-		window.new_form = form.clone().appendTo(jQuery('#content-frame2').contents().find("body"));
-		new_form.css('display', 'none');
-		frame2.css('min-height', '0');
-                frame2.css('height', '0px');
-		//frame2.contents().find('body').empty().append(parent.jQuery('#content-frame').contents().find('body').children());
-		//frame2.contents().find('head').empty().append(parent.jQuery('#content-frame').contents().find('head').children());
-
-		//jQuery('#content').css('display', 'none');
-
-		jQuery(parent.window.new_form).attr('target', '_self');
-		frame2.css('display', 'block');
-
- frame2.load(function () { //The function below executes once the iframe has finished loading<---true dat, althoug Is coppypasta from I don't know where
-		jQuery('#header-banner').css('display', 'none');
-		jQuery('#header-banner .metaslider').css('display', 'none');
-     frame2.css('min-height', '1630px');
-     frame2.css('height', '1630px');
-     jQuery('#content').css('display', 'none');
-     jQuery('body').scrollTop(0);
-   });
-		window.new_form.submit();
-	}
-	//parent.jQuery('#content-frame').insertBefore("#content");
-	//parent.jQuery('#content-frame').css("width", "100%").css("min-height", "700px").css("height", "auto").insertBefore("#content");
-	//parent.jQuery('#content-frame').css("width", "100%").css("min-height", "700px").css("height", "auto").insertBefore("#content");
-
-//}
-</script>
-
-</div>
-
-<h2><span class="title-style">Discover </span>Your Next Vacation</h2>
-<div id="specials-gallery" class="gallery-columns-3">
-<div class="gallery-item">
-<a href="/tropical-vacations">
-<div class="image">
-
-<img src="/wp-content/uploads/2016/04/tropical-vacations.jpg" alt="Tropical Vacations" />
-<p class="title-text">Tropical Vacations</p>
-
-</div>
-</a>
-</div>
-
-<div class="gallery-item">
-<a href="/luxurious-escapes">
-<div class="image">
-<img src="/wp-content/uploads/2016/04/terrace.jpg" alt="Luxurious Escapes" />
-<p class="title-text">Luxurious Escapes</p>
-</div>
- </a>
-</div>
-
-<div class="gallery-item">
-<a href="/short-getaways">
-<div class="image">
-
-<img src="/wp-content/uploads/2016/04/golden-gate-bridge.jpg" alt="Short Getaways" />
-<p class="title-text">Short Getaways</p>
-
-</div>
- </a>
-</div>
-
-<div class="gallery-item">
-<a href="/river-cruises">
-<div class="image">
-
-<img src="/wp-content/uploads/2016/04/amawaterways.jpg" alt="River Cruises" />
-<p class="title-text">River Cruises</p>
-
-</div>
-</a>
-</div>
-<div class="gallery-item">
-<a href="/hawaii">
-<div class="image">
-
-<img src="/wp-content/uploads/2016/04/hawaiian-resort-pool.jpg" alt="Hawaii Vacations" />
-<p class="title-text">Hawaii</p>
-
-</div>
-</a>
-</div>
-<div class="gallery-item">
-<a href="/europe">
-<div class="image">
-
-<img src="/wp-content/uploads/2016/04/eiffel-tower.jpg" alt="Europe Vacations" />
-<p class="title-text">Europe</p>
-
-</div>
-</a>
-</div>
-<div class="gallery-item">
-<a href="/las-vegas">
-<div class="image">
-
-<img src="/wp-content/uploads/2016/04/las-vegas-sign-sunset.jpg" alt="Las Vegas Vacations" />
-<p class="title-text">Las Vegas</p>
-
-</div>
-</a>
-</div>
-<div class="gallery-item">
-<a href="/active-vacations">
-<div class="image">
-
-<img src="/wp-content/uploads/2016/04/active-vacations.jpg" alt="Active Vacations" />
-<p class="title-text">Active Vacations</p>
-
-</div>
-</a>
-</div>
-<div class="gallery-item">
-<a href="/ncl-weekly-specials">
-<div class="image">
-
-<img src="/wp-content/uploads/2016/04/norwegian-weekly-special.jpg" alt="Norwegian Cruise Line Weekly Specials" />
-<p class="title-text">NCL Weekly Specials</p>
-
-</div>
-</a>
-</div>
-</div>
+    <body>
+        <h1>Section 7: Get Ready for the Future: ES6 / ES2015</h1>
+        
+        <div class="box green">I'm green!</div>
+        <div class="box blue">I'm blue!</div>
+        <div class="box orange">I'm orange!</div>
+        
+        <script src="test.js"></script>
+    </body>
+</html>
