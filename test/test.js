@@ -65,24 +65,44 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-// es5 
-var Person5 = function (name, yearOfBirth, job){
-  this.name = name
-  this.yearOfBirth = yearOfBirth
-  this.job = job
-}
+// // es5 function constructors 
+// var Person5 = function (name, yearOfBirth, job){
+//   this.name = name
+//   this.yearOfBirth = yearOfBirth
+//   this.job = job
+// }
 
-Person5.prototype.calcAge = function () {
-  var age = new Date().getFullYear() - this.yearOfBirth
-  console.log(age)
-  }
+// Person5.prototype.calcAge = function () {
+//   var age = new Date().getFullYear() - this.yearOfBirth
+//   console.log(age)
+//   }
 
-  var eder5 = new Person5('eder',1994,'developer')
+//   var eder5 = new Person5('eder',1994,'developer')
 
-//es6 
+// //es6 
+// class Person6 {
+//   constructor(name, yearOfBirth, job){
+//     this.name = name
+//     this.yearOfBirth = yearOfBirth
+//     this.job = job
+//   }
+//   calcAge(){
+//     let age = new Date().getFullYear() - this.yearOfBirth
+//     console.log(age)
+//   }
+// }
+
+// // an instance of Person6 is eder6
+// let eder6 = new Person6('eder', 1994, 'software developer')
+// eder6.calcAge()
+// console.log(eder6)
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 class Person6 {
-  constructor(name, yearOfBirth, job){
-    this.name = name;
+  constructor(name,yearOfBirth,job){
+    this.name = name
     this.yearOfBirth = yearOfBirth
     this.job = job
   }
@@ -92,5 +112,31 @@ class Person6 {
   }
 }
 
-let eder6 = new Person6('eder', 1994, 'software developer')
-eder6.calcAge()
+
+ class Athlete6 extends Person6 {
+   constructor(name, yearOfBirth, job, olympicGames, medalsWon, retired ){
+     super(name, yearOfBirth, job)
+       this.olympicGames = olympicGames
+       this.medalsWon = medalsWon
+       this.retired = retired
+   }
+   wonMedals(){
+     this.medalsWon++
+     console.log(this.medalsWon)
+   }
+   isRetired(){
+     if(this.retired){
+       console.log('eder is retired')
+     } else {
+       console.log('we are ready for nexr year')
+     }
+   }
+ }
+
+ let ederSwim = new Athlete6('eder',1994,'swimmer', 'greece', 8, true )
+ ederSwim.calcAge()
+ ederSwim.wonMedals()
+ ederSwim.isRetired()
+
+
+
