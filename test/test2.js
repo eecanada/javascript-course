@@ -43,7 +43,7 @@
 //    })
 
 
-// ///////////////////////////////////////////////////
+////////////////////////////////////////////////////////PROMISES//////////////////////////////////////////////////
 // //promises  are used for asynchronous js
 
 
@@ -89,6 +89,48 @@
 
 
 
+// const getIDs = new Promise ((resolve, reject)=>{
+//    setTimeout(()=>{
+//       resolve([123,421,145,584])
+//    },1000)
+// })
+
+// const getRecipe = recID2 =>{
+//    return new Promise((resolve,reject)=>{
+//       setTimeout((recID2)=>{
+//          const recipe = {title:'pizza', cook:'eder'}
+//          resolve(`${recID2} : ${recipe.title}`)
+//       },1500, recID2)
+//    })
+// }
+
+// const getCook = cook => {
+//    return new Promise((resolve,reject)=>{
+//       setTimeout((cook)=>{
+//          resolve(`${cook} makes the best food`)
+//       },2000, cook)
+//    })
+// }
+
+// getIDs
+//    .then(IDs=>{
+//       console.log(IDs)
+//       return getRecipe(IDs[2])   
+//    })
+//    .then(recipeNumAndTitle =>{
+//       console.log(recipeNumAndTitle)
+//       return getCook('eder')
+//    })
+//    .then(ederBestCook=>{
+//       console.log(ederBestCook)
+//    })
+//    .catch(err =>{
+//       console.log('error happened')
+//    })
+
+   
+
+////////////////////////////////////////////////////////ASYNC/AWAIT////////////////////////////////////////////
 const getIDs = new Promise ((resolve, reject)=>{
    setTimeout(()=>{
       resolve([123,421,145,584])
@@ -112,15 +154,14 @@ const getCook = cook => {
    })
 }
 
-getIDs
-   .then(IDs=>{
-      console.log(IDs)
-      return getRecipe(IDs[2])   
-   })
-   .then(recipeNumAndTitle =>{
-      console.log(recipeNumAndTitle)
-      return getCook('eder')
-   })
-   .then(ederBestCook=>{
-      console.log(ederBestCook)
-   })
+async function getRecipeAW(){
+   const IDs = await getIDs;
+   console.log(IDs)
+   const recipe = await getRecipe(IDs[2])
+   console.log(recipe)
+   const bestCook = await getCook('eder')
+   console.log(bestCook)
+
+} 
+
+getRecipeAW()
