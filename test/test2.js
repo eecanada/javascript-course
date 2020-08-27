@@ -1,3 +1,4 @@
+// const fetch = require('fetch');
 ////////////////////////////////////////////////////////PROMISES//////////////////////////////////////////////////
 
 // // created promise with executor function
@@ -112,7 +113,7 @@
 //    })
 // }
 
-// getIDs
+// getIDs //IDs is the resolve from getIDs
 //    .then(IDs=>{
 //       console.log(IDs)
 //       return getRecipe(IDs[2])   
@@ -165,3 +166,21 @@ async function getRecipeAW(){
 } 
 
 getRecipeAW()
+
+
+////////////////////////////////////////////AJAX CALLS WITH PROMISES////////////////////////////////////////////
+
+
+fetch('https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/2487956/')
+
+.then(result=>{
+   console.log(result)
+   //json to js 
+   return result.json()
+})
+.then(jsonToJs=>{
+   console.log(jsonToJs)
+})
+.catch(err=>{
+   console.log('error')
+}) 
