@@ -24,7 +24,30 @@
            console.log(sf)
        })
 
-    
+
+        function getWeather(woeid){
+            fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
+            .then(jsonData => {
+            return jsonData.json()
+            })
+
+             .then(jsonToJson => {
+            console.log(jsonToJson )
+            return jsonToJson.consolidated_weather[0]
+             })
+              .then(sf => {
+                  console.log(sf.max_temp)
+              })
+              .catch(err =>{
+            console.log('error') 
+            })
+        }
+        getWeather(2487956)
+        
+
+
+
+      
         </script>
     </body>
-</html>    
+</html>     
