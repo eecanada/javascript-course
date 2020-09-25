@@ -53,18 +53,45 @@
        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-       async function getDog(){
-           const dogJson = await fetch(`https://dog.ceo/api/breeds/image/random`)
-           const dogJsonToJs = await dogJson.json()
-           const image = dogJsonToJs.message
-           const innerContent =  document.querySelector('.randomDog')
-           console.log(innerContent)
-           innerContent.src = image
-           
-        }
+    //    async function getDog(){
+    //        try{
+    //         const dogJson = await fetch(`https://dog.ceo/api/breeds/image/random`)
+    //        const dogJsonToJs = await dogJson.json()
+    //        const image = dogJsonToJs.message
+    //        const innerContent =  document.querySelector('.randomDog')
+    //        console.log(innerContent)
+    //        innerContent.src = image
+    //        } catch (err){
+    //            console.log('error')
+    //        }
+    //        }
 
-       getDog()
+    //    getDog()
       
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function getDog(){
+    fetch(`https://dog.ceo/api/breeds/image/random`)
+    .then(jsonData => {
+        return jsonData.json()
+    })
+    .then(jsonDataToJs =>{
+        return jsonDataToJs.message
+    })
+    .then(dogImage => {
+        const doggo = document.querySelector('.randomDog')
+        doggo.src= dogImage
+    })
+    .catch(err =>{
+        console.log('err')
+    })
+}
+
+getDog()
+
         </script>
     </body>
 </html>     
