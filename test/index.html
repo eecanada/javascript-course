@@ -4,49 +4,66 @@
         <meta charset="UTF-8">
         <title> Testing Async/Await/Fetch/Promises </title>
         <h1> Testing Async/Await/Fetch/Promises  </h1>
+
+
+        <img class='randomDog' src="" >
         <script >
 
 
-        async function getWeatherAW(woeid){
-            try{
-            const jsonWeatherData = await fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${woeid}`)
-            const jsonToJs = await jsonWeatherData.json()
-            const firstHit = await jsonToJs[0]
-            return firstHit
-            } catch (error){
-                console.log('error')
-            }   
-        }
-       let sf;
-       getWeatherAW('san').then(data => {
+    //     async function getWeatherAW(woeid){
+    //         try{
+    //         const jsonWeatherData = await fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${woeid}`)
+    //         const jsonToJs = await jsonWeatherData.json()
+    //         const firstHit = await jsonToJs[0]
+    //         return firstHit
+
+    //         } catch (error){
+    //             console.log('error')
+    //           }   
+    //     }
+    //    let sf;
+    //    getWeatherAW('san').then(data => {
            
-           sf = data
-           console.log(sf)
-       })
+    //        sf = data
+    //        console.log(sf)
+    //    })
 
+       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        function getWeather(woeid){
-            fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
-            .then(jsonData => {
-            return jsonData.json()
-            })
+        // function getWeather(woeid){
+        //     fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
+        //     .then(jsonData => {
+        //     return jsonData.json()
+        //     })
 
-             .then(jsonToJson => {
-            console.log(jsonToJson )
-            return jsonToJson.consolidated_weather[0]
-             })
-              .then(sf => {
-                  console.log(sf.max_temp)
-              })
-              .catch(err =>{
-            console.log('error') 
-            })
-        }
-        getWeather(2487956)
+        //      .then(jsonToJson => {
+        //     console.log(jsonToJson )
+        //     return jsonToJson.consolidated_weather[0]
+        //      })
+        //       .then(sf => {
+        //           console.log(sf.max_temp)
+        //       })
+        //       .catch(err =>{
+        //     console.log('error') 
+        //     })
+        // }
+        // getWeather(2487956)
         
 
+       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+       async function getDog(){
+           const dogJson = await fetch(`https://dog.ceo/api/breeds/image/random`)
+           const dogJsonToJs = await dogJson.json()
+           const image = dogJsonToJs.message
+           const innerContent =  document.querySelector('.randomDog')
+           console.log(innerContent)
+           innerContent.src = image
+           
+        }
+
+       getDog()
       
         </script>
     </body>
