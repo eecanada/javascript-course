@@ -117,25 +117,43 @@
 
 
 
-function getFoodPr(){
+// function getFoodPr(){
 
-    fetch(`https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3`)
-    .then( jsonData => {
-        return jsonData.json()
-    })
-    .then(jsonDataToJs =>{
-        return jsonDataToJs.results[0].thumbnail
-        console.log(jsonDataToJs)
-    })
-    .then(image =>{
-        const foodImage = document.querySelector('.apiImage')
-        foodImage.src = image
-    }).catch(err =>{
+//     fetch(`https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3`)
+//     .then( jsonData => {
+//         return jsonData.json()
+//     })
+//     .then(jsonDataToJs =>{
+//         return jsonDataToJs.results[0].thumbnail
+//         console.log(jsonDataToJs)
+//     })
+//     .then(image =>{
+//         const foodImage = document.querySelector('.apiImage')
+//         foodImage.src = image
+//     }).catch(err =>{
+//         console.log('error')
+//     })
+// }
+
+// getFoodPr()
+
+
+
+async function getFood (){
+try{
+    let apiCall = await fetch('https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api/')
+    let jsonToJS = await apiCall.json()
+    let image = await jsonToJS.results[0].thumbnail
+    console.log(image)
+
+    let img = document.querySelector('.apiImage').src = image
+    }catch(err){
         console.log('error')
-    })
+    }
 }
 
-getFoodPr()
+
+getFood()
 
         </script>
     </body>
