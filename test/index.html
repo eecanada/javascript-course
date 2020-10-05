@@ -139,21 +139,38 @@
 
 
 
-async function getFood (){
-try{
-    let apiCall = await fetch('https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api/')
-    let jsonToJS = await apiCall.json()
-    let image = await jsonToJS.results[0].thumbnail
-    console.log(image)
+// async function getFood (){
+// try{
+//     let apiCall = await fetch('https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api/')
+//     let jsonToJS = await apiCall.json()
+//     let image = await jsonToJS.results[0].thumbnail
+//     console.log(image)
 
-    let img = document.querySelector('.apiImage').src = image
-    }catch(err){
-        console.log('error')
-    }
-}
+//     let img = document.querySelector('.apiImage').src = image
+//     }catch(err){
+//         console.log('error')
+//     }
+// }
 
 
-getFood()
+// getFood()
+
+// async function getDog(){
+//   try{
+//     let jsonDog = await fetch('https://dog.ceo/api/breed/retriever/images')
+//     console.log(jsonDog)
+
+//     let jsonToJs = await jsonDog.json()
+//     console.log(jsonToJs)
+    
+//   } catch(err){
+//       console.log('error')
+//   }
+// }
+
+// getDog()
+
+
 
         </script>
     </body>
