@@ -1,7 +1,7 @@
 # Javascript Course
 
-* This is a Javascript course taught by Jonas Schmedtmann.
-[Jonas Schmedtmann](https://www.udemy.com/course/the-complete-javascript-course/)
+* This is a Javascript course taught by 
+[Jonas Schmedtmann](https://www.udemy.com/course/the-complete-javascript-course/).
 
 
 # Topics 
